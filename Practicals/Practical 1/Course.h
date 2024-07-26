@@ -1,5 +1,5 @@
-#ifndef MENUITEM_H
-#define MENUITEM_H
+#ifndef COURSE_H
+#define COURSE_H
 
 #include "MenuItem.h"
 
