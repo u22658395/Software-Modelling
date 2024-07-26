@@ -1,13 +1,12 @@
-
 #ifndef MAINCOURSE_H
 #define MAINCOURSE_H
 
 #include "Course.h"
 
-class Dessert{
+class MainCourse{
     public:
-        Dessert(int maxNumberOfItems);
+        MainCourse(int maxNumberOfItems);
         virtual void recommendBeverage();
-        // virtual ~Dessert();
+        // virtual ~MainCourse();
 };
 #endif
