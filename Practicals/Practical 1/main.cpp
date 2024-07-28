@@ -48,21 +48,23 @@ void testMenuItem(){
 }
 
 void testCourse(){
-    Course c("C1",4);
+    Course c("C1",2);
+    cout << "Course: "<< c.getDescription();
     cout << "\nAdd Items:\n";
     cout << "item1: " <<(bool)c.addMenuItem("item1",14.00,3) << endl;
     cout << "item2: " <<(bool)c.addMenuItem("item2",7.09,1) << endl;
     cout << "item3: " <<(bool)c.addMenuItem("item3",10.00,8) << endl;
 
     cout << "\nget items:" << endl
-        << c.getMenuItem(0)->getDescription() << endl
-        << c.getMenuItem(1)->getDescription() << endl
-        << c.getMenuItem(2)->getDescription() << endl;
+        << ((c.getMenuItem(0) == nullptr)? "null" : c.getMenuItem(0)->getDescription()) << endl
+        << ((c.getMenuItem(1)== nullptr)? "null" : c.getMenuItem(0)->getDescription()) << endl
+        << ((c.getMenuItem(2)== nullptr)? "null" : c.getMenuItem(0)->getDescription()) << endl;
 
     cout << "\nprint items:\n";
     c.printMenuItems();
     cout << "\n inventory:\n";
     c.printInventory();
 
+    
 
 }
