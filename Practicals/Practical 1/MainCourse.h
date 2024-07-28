@@ -3,10 +3,9 @@
 
 #include "Course.h"
 
-class MainCourse{
+class MainCourse: public Course{
     public:
         MainCourse(int maxNumberOfItems);
         virtual void recommendBeverage();
-        // virtual ~MainCourse();
 };
 #endif
