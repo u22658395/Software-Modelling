@@ -1,4 +1,8 @@
 #include "Course.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
 
 Course::Course(string description, int maxNumberOfItems){
     this->description = description;
@@ -11,6 +15,9 @@ string Course::getDescription(){
 
 bool Course::addMenuItem(string description, float price, int stock){
     int iniSize = menuItems.size();
+    if(iniSize == maxNumberOfItems){
+        return false;
+    }
     menuItems.push_back(new MenuItem(description,price, stock));
     return iniSize < menuItems.size();
 }
@@ -28,7 +35,7 @@ void Course::printInventory(){
     char charIndex = 'a';
     for (int i = 0; i < menuItems.size(); i++,charIndex++)
     {
-        cout << '\t' << charIndex << ".\t" << menuItems.at(i)->getDescription() <<'\t' << menuItems.at(i)->getPrice() <<'\t'<< menuItems.at(i)->getStock() <<'\n';
+        cout << '\t' << charIndex << ".\t" << menuItems.at(i)->getDescription() <<'\t' << std::fixed << setprecision(2) << menuItems.at(i)->getPrice() <<'\t'<< menuItems.at(i)->getStock() <<'\n';
     }
 }
 

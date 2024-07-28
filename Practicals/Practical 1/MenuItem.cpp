@@ -19,5 +19,6 @@ int MenuItem::getStock(){
 }
 
 void MenuItem::reduceStock(){
+    if(stock >=1)
     --stock; 
 }
