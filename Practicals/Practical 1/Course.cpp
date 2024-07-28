@@ -18,8 +18,10 @@ bool Course::addMenuItem(string description, float price, int stock){
     if(iniSize == maxNumberOfItems){
         return false;
     }
-    menuItems.push_back(new MenuItem(description,price, stock));
-    return iniSize < menuItems.size();
+    else{
+        menuItems.push_back(new MenuItem(description,price, stock));
+        return true;    
+    }
 }
 
 void Course::printMenuItems(){

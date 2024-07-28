@@ -12,6 +12,7 @@ using namespace std;
 
 void testMenuItem();
 void testCourse(Course*);
+void testMenu();
 
 int main(int argc, char const *argv[])
 {
@@ -19,6 +20,8 @@ int main(int argc, char const *argv[])
     testCourse(new Starter(2));
     testCourse(new MainCourse(1));
     testCourse(new Dessert(3));
+
+    testMenu();
     return 0; 
 }
 
@@ -75,3 +78,41 @@ void testCourse(Course* c){
     delete c;
 }
 
+void testMenu(){
+
+    cout<< "\n\n---Menu Class----Menu Class----Menu Class----Menu Class---\n";
+    Menu* m = new Menu();
+    cout << "Courses empty?: " << m->isCoursesEmpty() << endl;
+    cout << "add Starter: " <<m->addCourse(new Starter(2)) << endl;
+    cout << "add Starter: " <<m->addCourse(new Starter(4)) << endl;
+    cout << "Insert Starter(Onion Soup):" << m->addMenuItem("Starter","Onion Soup",35.99,6) << endl;
+    cout << "Insert Starter(Caesar Salad):" << m->addMenuItem("Starter","Caesar Salad",45.99,4)<< endl;
+    cout << "Insert Starter(Onion Soup):" << m->addMenuItem("Starter","Onion Soup",35.99,3)<< endl;
+
+    cout << "\nadd MainCourse: " <<m->addCourse(new MainCourse(3)) << endl;
+    cout << "Insert Main(Steak):" << m->addMenuItem("Main","Steak",105.99,5)<< endl;
+    cout << "Insert Main(Chicken):" << m->addMenuItem("Main","Chicken",95.99,2)<< endl;
+    cout << "Insert Main(Fish):" << m->addMenuItem("Main","Fish",85.99,3)<< endl;
+
+    cout << "\nadd Dessert: " << m->addCourse(new Dessert(1)) << endl;
+    cout << "Insert Dessert(Ice Cream):" << m->addMenuItem("Dessert", "Ice Cream", 65.99, 7)<< endl;
+    cout << "Insert Dessert(Ice Cream):" << m->addMenuItem("Dessert", "Ice Cream", 65.99, 7)<< endl;
+    
+    cout <<"\n\nMenu:\n";
+    m->printMenu();
+    cout <<"\n\nInventory:\n";
+    m->inventory();
+
+    cout << "\norder Main (a): " << m->orderItem("Main",'b')<< endl;
+    cout << "\norder Main (a): " << m->orderItem("Main",'b')<< endl;
+    cout << "\norder Main (a): " << m->orderItem("Main",'b')<< endl;
+    cout << "\norder Dessert (a): " << m->orderItem("Dessert",'a')<< endl;
+    cout <<"\n\nInventory:\n";
+    m->inventory();
+    cout << "Courses empty?: " << m->isCoursesEmpty() << endl;
+    
+    m->closeShop();
+    cout << "\nCourses empty?: " << m->isCoursesEmpty() << endl;
+    
+
+}
