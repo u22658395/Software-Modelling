@@ -47,7 +47,7 @@ void testMenuItem(){
 
 }
 
-void testCourse(){
+/*void testCourse(){
     Course c("C1",2);
     cout << "Course: "<< c.getDescription();
     cout << "\nAdd Items:\n";
@@ -65,6 +65,4 @@ void testCourse(){
     cout << "\n inventory:\n";
     c.printInventory();
 
-    
-
-}
+}*/

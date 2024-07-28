@@ -3,10 +3,10 @@
 
 #include "Course.h"
 
-class Starter{
+class Starter : public Course{
     public:
         Starter(int maxNumberOfItems);
         virtual void recommendBeverage();
-        // virtual ~Starter();
+        virtual ~Starter();
 };
 #endif

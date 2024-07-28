@@ -15,7 +15,7 @@ class Course{
         void printMenuItems();
         void printInventory();
         MenuItem* getMenuItem(int index);
-        // virtual void recommendBeverage() = 0;
+        virtual void recommendBeverage() = 0;
         virtual ~Course();
 
     protected:
