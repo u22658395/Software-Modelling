@@ -7,6 +7,5 @@ class Starter : public Course{
     public:
         Starter(int maxNumberOfItems);
         virtual void recommendBeverage();
-        virtual ~Starter();
 };
 #endif
