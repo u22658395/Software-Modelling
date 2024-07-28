@@ -5,20 +5,20 @@
 #include "MenuItem.h"
 #include "Starter.h"
 
+#include <stdlib.h>
 #include <iomanip>
 #include <iostream>
 using namespace std;
 
 void testMenuItem();
-void testStarter();
-void testMainCourse();
-void testDessert();
+void testCourse(Course*);
 
 int main(int argc, char const *argv[])
 {
     testMenuItem();
-    testStarter();
-    testMainCourse();
+    testCourse(new Starter(2));
+    testCourse(new MainCourse(1));
+    testCourse(new Dessert(3));
     return 0; 
 }
 
@@ -50,53 +50,28 @@ void testMenuItem(){
 
 }
 
-void testStarter(){
-
-    Course* s = new Starter(2);
-    cout << "Starter: "<< s->getDescription();
+void testCourse(Course* c){
+    cout<<"\n\n";
+    cout << "Class: "<< c->getDescription();
     cout << "\nAdd Items:\n";
-    cout << "item1: " <<(bool)s->addMenuItem("item1",14.00,3) << endl;
-    cout << "item2: " <<(bool)s->addMenuItem("item2",7.09,1) << endl;
-    cout << "item3: " <<(bool)s->addMenuItem("item3",10.00,8) << endl;
+    cout << "item1: " <<(bool)c->addMenuItem("item1",14.00,3) << endl;
+    cout << "item2: " <<(bool)c->addMenuItem("item2",7.09,1) << endl;
+    cout << "item3: " <<(bool)c->addMenuItem("item3",10.00,8) << endl;
 
     cout << "\nget items:" << endl
-        << ((s->getMenuItem(0) == nullptr)? "null" : s->getMenuItem(0)->getDescription()) << endl
-        << ((s->getMenuItem(1)== nullptr)? "null" : s->getMenuItem(0)->getDescription()) << endl
-        << ((s->getMenuItem(2)== nullptr)? "null" : s->getMenuItem(0)->getDescription()) << endl;
+        << ((c->getMenuItem(0) == nullptr)? "null" : c->getMenuItem(0)->getDescription()) << endl
+        << ((c->getMenuItem(1)== nullptr)? "null" : c->getMenuItem(0)->getDescription()) << endl
+        << ((c->getMenuItem(2)== nullptr)? "null" : c->getMenuItem(0)->getDescription()) << endl;
 
 
     cout << "Recommended: ";
-    s->recommendBeverage();
+    c->recommendBeverage();
 
     cout << "\nprint items:\n";
-    s->printMenuItems();
+    c->printMenuItems();
     cout << "\n inventory:\n";
-    s->printInventory();
+    c->printInventory();
 
-    delete s;
+    delete c;
 }
 
-void testMainCourse(){
-
-    Course* mC = new MainCourse(2);
-    cout << "MainCourse: "<< mC->getDescription();
-    cout << "\nAdd Items:\n";
-    cout << "item1: " <<(bool)mC->addMenuItem("item1",14.00,3) << endl;
-    cout << "item2: " <<(bool)mC->addMenuItem("item2",7.09,1) << endl;
-    cout << "item3: " <<(bool)mC->addMenuItem("item3",10.00,8) << endl;
-
-    cout << "\nget items:" << endl
-        << ((mC->getMenuItem(0) == nullptr)? "null" : mC->getMenuItem(0)->getDescription()) << endl
-        << ((mC->getMenuItem(1)== nullptr)? "null" : mC->getMenuItem(0)->getDescription()) << endl
-        << ((mC->getMenuItem(2)== nullptr)? "null" : mC->getMenuItem(0)->getDescription()) << endl;
-
-    cout << "Recommended: ";
-    mC->recommendBeverage();
-
-    cout << "\nprint items:\n";
-    mC->printMenuItems();
-    cout << "\n inventory:\n";
-    mC->printInventory();
-
-    delete mC;
-}

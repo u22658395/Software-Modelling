@@ -3,7 +3,7 @@
 
 #include "Course.h"
 
-class Dessert{
+class Dessert:public Course{
     public:
         Dessert(int maxNumberOfItems);
         virtual void recommendBeverage();
