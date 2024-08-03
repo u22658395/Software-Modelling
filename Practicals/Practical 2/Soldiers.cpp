@@ -5,3 +5,7 @@ void Soldiers::engage(){
     execute();
 }
 
+void Soldiers::disengage(){
+    retreat();
+    rest();
+}
