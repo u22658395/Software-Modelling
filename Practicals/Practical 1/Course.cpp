@@ -1,6 +1,5 @@
 #include "Course.h"
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 
@@ -37,7 +36,8 @@ void Course::printInventory(){
     char charIndex = 'a';
     for (int i = 0; i < menuItems.size(); i++,charIndex++)
     {
-        cout << '\t' << charIndex << ".\t" << menuItems.at(i)->getDescription() <<'\t' << std::fixed << setprecision(2) << menuItems.at(i)->getPrice() <<'\t'<< menuItems.at(i)->getStock() <<'\n';
+        cout.precision(2);
+        cout << '\t' << charIndex << ".\t" << menuItems.at(i)->getDescription() <<'\t' << std::fixed << menuItems.at(i)->getPrice() <<'\t'<< menuItems.at(i)->getStock() <<'\n';
     }
 }
 

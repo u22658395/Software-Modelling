@@ -6,7 +6,6 @@
 #include "Starter.h"
 
 #include <stdlib.h>
-#include <iomanip>
 #include <iostream>
 using namespace std;
 
