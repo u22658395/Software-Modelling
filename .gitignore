@@ -4,3 +4,5 @@ main
 Practicals/Practical 1/.vscode/settings.json
 *.zip
 *.pdf
+*.vpp*
+*.vux

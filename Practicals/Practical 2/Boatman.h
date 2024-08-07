@@ -1,10 +1,8 @@
-#ifndef INFANTRY_H
-#define INFANTRY_H
-
+#ifndef BOATMAN_H
+#define BOATMAN_H
 #include "Soldiers.h"
 #include <string>
-
-class Infantry : public Soldiers {
+class Boatman : public Soldiers {
 
 private:
 	int healthPerSoldier;
@@ -14,16 +12,20 @@ private:
 	std::string unitName;
 
 public:
-	Infantry();
-	Infantry(int value1, int value2, int value3, int value4, std::string value5);
-	Infantry* clonis();
+	Boatman();
+	Boatman(int value1, int value2, int value3, int value4, std::string value5);
+	Boatman* clonis();
 	void engage();
+
 	void disengage();
 
 private:
 	void prepare();
+
 	void execute();
+
 	void retreat();
+
 	void rest();
 };
 
