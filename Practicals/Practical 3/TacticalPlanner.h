@@ -1,6 +1,7 @@
 #ifndef TACTICALPLANNER_H
 #define TACTICALPLANNER_H
-
+#include "BattleStrategy.h"
+#include "TacticalMemento.h"
 class TacticalPlanner {
 
 private:

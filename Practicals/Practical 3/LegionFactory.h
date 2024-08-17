@@ -1,5 +1,8 @@
 #ifndef LEGIONFACTORY_H
 #define LEGIONFACTORY_H
+#include "Infantry.h";
+#include "Cavalry.h";
+#include "Artillery.h";
 
 class LegionFactory {
 

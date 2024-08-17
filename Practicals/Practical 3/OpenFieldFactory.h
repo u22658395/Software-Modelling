@@ -1,5 +1,9 @@
 #ifndef OPENFIELDFACTORY_H
 #define OPENFIELDFACTORY_H
+#include "Infantry.h";
+#include "Cavalry.h";
+#include "Artillery.h";
+#include "LegionFactory.h";
 
 class OpenFieldFactory : LegionFactory {
 
