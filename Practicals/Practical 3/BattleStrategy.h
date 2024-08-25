@@ -5,7 +5,11 @@ class BattleStrategy {
 
 
 public:
-	void engage();
+	virtual void engage(LegionUnit* unit)=0;
+	virtual ~BattleStrategy(){};
+	virtual BattleStrategy* clone() const = 0;
+
+	
 };
 
 #endif

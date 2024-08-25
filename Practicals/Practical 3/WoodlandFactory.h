@@ -1,19 +1,22 @@
 #ifndef WOODLANDFACTORY_H
 #define WOODLANDFACTORY_H
-#include "Infantry.h";
-#include "Cavalry.h";
-#include "Artillery.h";
-#include "LegionFactory.h";
+#include "LegionFactory.h"
+#include "InfantryWoodland.h"
+#include "CavalryWoodland.h"
+#include "ArtilleryWoodland.h"
 
-class WoodlandFactory : LegionFactory {
-
-
+class WoodlandFactory : public LegionFactory {
 public:
-	Infantry* createInfanctry();
-
-	Cavalry* createCavalry();
-
-	Artillery* createArtillery();
+WoodlandFactory(int initialBudget) : LegionFactory(initialBudget) {}
+    Infantry* createInfantry() {
+        return new InfantryWoodland();
+    }
+    Cavalry* createCavalry() {
+        return new CavalryWoodland();
+    }
+    Artillery* createArtillery() {
+        return new ArtilleryWoodland();
+    }
 };
 
 #endif

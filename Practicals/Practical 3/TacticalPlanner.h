@@ -1,16 +1,33 @@
 #ifndef TACTICALPLANNER_H
 #define TACTICALPLANNER_H
-#include "BattleStrategy.h"
-#include "TacticalMemento.h"
-class TacticalPlanner {
 
+#include "TacticalMemento.h"
+
+class TacticalPlanner {
 private:
-	BattleStrategy* currentStrategy;
+    BattleStrategy* currentStrategy;
 
 public:
-	TacticalMemento createMemento();
+    TacticalPlanner() : currentStrategy(nullptr) {}
 
-	void restoreMemento(TacticalMemento memento);
+    void setStrategy(BattleStrategy* strategy) {
+        if (currentStrategy) {
+            delete currentStrategy;
+        }
+        currentStrategy = strategy->clone();
+    }
+
+    TacticalMemento* createMemento() const {
+        return new TacticalMemento(currentStrategy);
+    }
+
+    void restoreMemento(TacticalMemento* memento) {
+        setStrategy(memento->getSavedStrategy());
+    }
+
+    ~TacticalPlanner() {
+        delete currentStrategy;
+    }
 };
 
-#endif
+#endif // TACTICALPLANNER_H

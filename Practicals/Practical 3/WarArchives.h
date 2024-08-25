@@ -1,16 +1,35 @@
 #ifndef WARARCHIVES_H
 #define WARARCHIVES_H
-#include <iostream>
 
-using namespace std;
+#include "TacticalMemento.h"
+#include <map>
+#include <string>
 
 class WarArchives {
-
+private:
+    std::map<std::string, TacticalMemento*> archives;
 
 public:
-	void addTacticalMemento();
+    void addTacticalMemento(const std::string& label, TacticalMemento* memento) {
+        archives[label] = memento;
+    }
 
-	void removetacticalString(string label);
+    TacticalMemento* getTacticalMemento(const std::string& label) {
+        return archives.count(label) ? archives[label] : nullptr;
+    }
+
+    void removeTacticalMemento(const std::string& label) {
+        if (archives.count(label)) {
+            delete archives[label];
+            archives.erase(label);
+        }
+    }
+
+    ~WarArchives() {
+        for (auto& entry : archives) {
+            delete entry.second;
+        }
+    }
 };
 
-#endif
+#endif 

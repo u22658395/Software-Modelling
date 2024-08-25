@@ -1,19 +1,21 @@
 #ifndef RIVERBANKFACTORY_H
 #define RIVERBANKFACTORY_H
-#include "Infantry.h";
-#include "Cavalry.h";
-#include "Artillery.h";
-#include "LegionFactory.h";
+#include "LegionFactory.h"
+#include "InfantryRiverbank.h"
+#include "CavalryRiverbank.h"
+#include "ArtilleryRiverbank.h"
 
-class RiverbankFactory : LegionFactory {
-
-
+class RiverbankFactory : public LegionFactory {
 public:
-	Infantry* createInfanctry();
-
-	Cavalry* createCavalry();
-
-	Artillery* createArtillery();
+    RiverbankFactory(int initialBudget) : LegionFactory(initialBudget) {}
+    Infantry* createInfantry() {
+        return new InfantryRiverbank();
+    }
+    Cavalry* createCavalry() {
+        return new CavalryRiverbank();
+    }
+    Artillery* createArtillery() {
+        return new ArtilleryRiverbank();
+    }
 };
-
 #endif

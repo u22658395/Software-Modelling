@@ -1,12 +1,22 @@
 #ifndef TACTICALMEMENTO_H
 #define TACTICALMEMENTO_H
+
 #include "BattleStrategy.h"
 
 class TacticalMemento {
-
+private:
+    BattleStrategy* savedStrategy;
 
 public:
-	void storeStrategy(BattleStrategy* strategy);
+    TacticalMemento(BattleStrategy* strategy) : savedStrategy(strategy->clone()) {}
+    
+    ~TacticalMemento() {
+        delete savedStrategy;
+    }
+    
+    BattleStrategy* getSavedStrategy() const {
+        return savedStrategy->clone();
+    }
 };
 
-#endif
+#endif // TACTICALMEMENTO_H

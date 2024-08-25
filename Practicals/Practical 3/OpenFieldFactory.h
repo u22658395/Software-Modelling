@@ -1,21 +1,25 @@
 #ifndef OPENFIELDFACTORY_H
 #define OPENFIELDFACTORY_H
-#include "Infantry.h";
-#include "Cavalry.h";
-#include "Artillery.h";
-#include "LegionFactory.h";
+#include "InfantryOpenField.h"
+#include "CavalryOpenField.h"
+#include "ArtilleryOpenField.h"
+#include "LegionFactory.h"
 
 class OpenFieldFactory : LegionFactory {
 
 
 public:
-	Infantry* createInfanctry();
-
-	Cavalry* createCavalry();
-
-	Artillery* createArtillery();
-
-	void deployArtillery();
+   OpenFieldFactory(int initialBudget) : LegionFactory(initialBudget) {}
+	Infantry* createInfantry() {
+        return new InfantryOpenField();
+    }
+    Cavalry* createCavalry() {
+        return new CavalryOpenField();
+    }
+    Artillery* createArtillery() {
+        return new ArtilleryOpenField();
+    }
 };
+
 
 #endif
