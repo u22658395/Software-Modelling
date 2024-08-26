@@ -1,7 +1,12 @@
 #include "BoatmanFactory.h"
 
 
+BoatmanFactory::BoatmanFactory()
+{
+	soldiers=new Boatman();
+}
 
 Soldiers* BoatmanFactory::createUnit() {
-	return new Boatman();
+	soldiers->setStrength(calculateStrength());
+	return soldiers->clonis();
 }

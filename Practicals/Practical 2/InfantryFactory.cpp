@@ -1,19 +1,13 @@
 #include "InfantryFactory.h"
+#include<iostream>
+using namespace std;
 
-int InfantryFactory::calculateTotalHealthPerUnit() {
-	return soldiers->getHealthPerSoldier()*soldiers->getAmountOfSoldiersPerUnit();
-}
-
-int InfantryFactory::calculateTotalDamagePerUnit() {
-	// TODO - implement InfantryFactory::calculateTotalDamagePerUnit
-	throw "Not yet implemented";
-}
-
-int InfantryFactory::calculateTotalDefencePerUnit() {
-	// TODO - implement InfantryFactory::calculateTotalDefencePerUnit
-	throw "Not yet implemented";
+InfantryFactory::InfantryFactory()
+{
+	soldiers = new Infantry();
 }
 
 Soldiers* InfantryFactory::createUnit() {
-	return new Infantry();
+	soldiers->setStrength(calculateStrength());
+	return soldiers->clonis();
 }

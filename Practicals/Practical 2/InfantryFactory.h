@@ -8,16 +8,11 @@
 
 class InfantryFactory : public SoldierFactory {
 
-private: 
-	Soldiers* soldiers;
+
 public:
-	int calculateTotalHealthPerUnit();
-
-	int calculateTotalDamagePerUnit();
-
-	int calculateTotalDefencePerUnit();
-
+	InfantryFactory();
 	Soldiers* createUnit();
+	
 };
 
 #endif

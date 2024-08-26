@@ -3,19 +3,19 @@
 
 #include "Soldiers.h"
 
+class Soldiers;
 class SoldierFactory {
 
-private:
-	Soldiers* soldiers;
-
 protected:
+	Soldiers* soldiers;
+	int calculateTotalHealthPerUnit();
+	int calculateTotalDamagePerUnit();
+	int calculateTotalDefencePerUnit();
+	int calculateStrength();
+
+public:
 	virtual Soldiers* createUnit() = 0;
-
-	virtual int calculateTotalHealthPerUnit();
-
-	virtual int calculateTotalDamagePerUnit();
-
-	virtual int calculateTotalDefencePerUnit();
+	~SoldierFactory();
 };
 
 #endif

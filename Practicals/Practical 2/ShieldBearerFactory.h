@@ -7,12 +7,7 @@ class ShieldBearerFactory : public SoldierFactory {
 
 
 public:
-	int calculateTotalHealthPerUnit();
-
-	int calculateTotalDamagePerUnit();
-
-	int calculateTotalDefencePerUnit();
-
+	ShieldBearerFactory();
 	Soldiers* createUnit();
 };
 

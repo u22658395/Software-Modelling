@@ -4,29 +4,25 @@
 #include <string>
 class Boatman : public Soldiers {
 
-private:
-	int healthPerSoldier;
-	int damagePerSoldier;
-	int defencePerSoldier;
-	int amountOfSoldiersPerUnit;
-	std::string unitName;
 
 public:
 	Boatman();
-	Boatman(int value1, int value2, int value3, int value4, std::string value5);
+	~Boatman();
+	Boatman(int value1, int value2, int value3, int value4, std::string value5,int value6);
 	Boatman* clonis();
-	void engage();
+	// void engage();
+	// void disengage(Memento*);
 
-	void disengage();
-
-private:
 	void prepare();
-
-	void execute();
-
+	void execute(Soldiers* );
 	void retreat();
-
-	void rest();
+	
+	void rest(Memento*);
+	
 };
 
 #endif
+
+
+//create infantry unit inf using InfFactory
+//inf2 = inf->clone()

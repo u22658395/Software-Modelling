@@ -6,25 +6,18 @@
 
 class Infantry : public Soldiers {
 
-private:
-	int healthPerSoldier;
-	int damagePerSoldier;
-	int defencePerSoldier;
-	int amountOfSoldiersPerUnit;
-	std::string unitName;
-
 public:
 	Infantry();
-	Infantry(int value1, int value2, int value3, int value4, std::string value5);
+	Infantry(int value1, int value2, int value3, int value4, std::string value5,int value6);
 	Infantry* clonis();
-	void engage();
-	void disengage();
+	// void engage();
+	// void disengage(Memento*);
 
-private:
 	void prepare();
-	void execute();
+	void execute(Soldiers* );
 	void retreat();
-	void rest();
+	
+	void rest(Memento*);
 };
 
 #endif

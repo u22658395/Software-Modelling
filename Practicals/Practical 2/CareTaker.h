@@ -2,17 +2,18 @@
 #define CARETAKER_H
 
 #include "Memento.h"
-#include<vector>
+#include<queue>
 using namespace std;
 
 class CareTaker {
     public:
         CareTaker();
+        ~CareTaker();
         void addMemento(Memento* m);
-        Memento* getMemento(int index);
+        Memento* getMemento();
 
     private:
-        vector<Memento*> mementos;
+        queue<Memento*> mementos;
 
 
 };
