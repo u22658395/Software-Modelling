@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "UnitComponent.h"
+#include "TacticalCommand.h"
 
 class TacticalCommand;
 
@@ -28,7 +29,9 @@ public:
     void setHealth(int h);
     void setDamage(int d);
 
-    // virtual ~LegionUnit() ;
+    virtual ~LegionUnit() ;
 };
 
 #endif
+
+

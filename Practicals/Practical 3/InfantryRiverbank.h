@@ -17,6 +17,7 @@ class InfantryRiverbank : public Infantry {
     void attack(){
         std::cout << "InfantryRiverbank charging along the riverbank with great force.\n";
     }
+    ~InfantryRiverbank() noexcept override = default;
 };
 
 #endif

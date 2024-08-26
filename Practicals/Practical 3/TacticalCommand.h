@@ -41,6 +41,11 @@ public:
             planner.restoreMemento(memento);
         }
     }
+    BattleStrategy* getStrategy()
+    {
+        return this->strategy;
+    }
+
 
     ~TacticalCommand() 
     {
@@ -51,6 +56,7 @@ public:
     {
         
     }
+    
 };
 
 #endif // TACTICALCOMMAND_H

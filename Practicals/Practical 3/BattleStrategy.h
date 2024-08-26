@@ -1,6 +1,7 @@
 #ifndef BATTLESTRATEGY_H
 #define BATTLESTRATEGY_H
-
+#include "LegionUnit.h"
+class LegionUnit;
 class BattleStrategy {
 
 

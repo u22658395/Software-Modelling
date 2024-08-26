@@ -17,6 +17,7 @@ class InfantryWoodland : public Infantry {
     void attack() {
         std::cout << "InfantryWoodland launching heavy bombardment from the Woodland.\n";
     }
+    ~InfantryWoodland() noexcept override = default;
     
    
 };

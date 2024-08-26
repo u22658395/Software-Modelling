@@ -18,6 +18,8 @@ public:
     void attack() {
         std::cout << "CavalryOpenField charging head-on with unmatched speed.\n";
     }
+    ~CavalryOpenField() noexcept override = default;
+
 };
 
 #endif  // CAVALRYOPENFIELD_H

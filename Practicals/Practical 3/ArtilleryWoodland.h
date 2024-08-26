@@ -18,6 +18,8 @@ public:
     void attack() {
         std::cout << "ArtilleryRiverbank launching heavy bombardment from the Woodland.\n";
     }
+    ~ArtilleryWoodland() noexcept override = default;
+
 };
 
-#endif  // ARTILLERYRIVERBANK_H
+#endif  

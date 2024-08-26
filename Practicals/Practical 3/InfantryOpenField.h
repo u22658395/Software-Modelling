@@ -18,6 +18,7 @@ public:
     void attack() {
         std::cout << "CavalryRiverbank charging along the riverbank with great force.\n";
     }
+    ~InfantryOpenField() noexcept override = default;
 };
 
 #endif  // CAVALRYRIVERBANK_H

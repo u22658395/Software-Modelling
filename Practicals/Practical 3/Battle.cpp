@@ -1,74 +1,78 @@
-// #include "Battle.h"
-// #include "TacticalPlanner.h"
-// #include "WarArchives.h"
-// #include "CavalryRiverbank.h"
-// #include <iostream>
+#include "Battle.h"
+#include <iostream>
 
-// Battle::Battle() {
-//     // Initialize TacticalPlanner and WarArchives
-//     planner = new TacticalPlanner();
-//     archives = new WarArchives();
-// }
+Battle::Battle() : tactic_(nullptr) {}
 
-// Battle::~Battle() {
-//     delete planner;
-//     delete archives;
-// }
+Battle::~Battle() {
+    delete tactic_;
+}
 
-// void Battle::simulateCombat(std::vector<LegionUnit*>& playerUnits, std::vector<LegionUnit*>& aiUnits) {
-//     std::cout << "Battle begins!" << std::endl;
+void Battle::addUnit(LegionUnit* unit) {
+    units_.push_back(unit);
+}
 
-//     // Retrieve previous strategy if available
-//     // TacticalMemento* memento = archives->getTacticalMemento("LastBattle");
-//     // if (memento) {
-//     //     planner->restoreMemento(memento);
-//     //     std::cout << "Previous strategy loaded for this battle.\n";
-//     // }
+void Battle::removeUnit(LegionUnit* unit) {
+    for (auto it = units_.begin(); it != units_.end(); ++it) {
+        if (*it == unit) {
+            units_.erase(it);
+            break; // Exit the loop once the unit is found and removed
+        }
+    }
+}
 
-//     while (!playerUnits.empty() && !aiUnits.empty()) {
-//         // Example strategy usage - adapt based on your game logic
-//         if (planner->getCurrentStrategy()) {
-//             planner->getCurrentStrategy()->engage(playerUnits.back());
-//         }
 
-//         // Player units attack AI units
-//         for (auto playerUnit : playerUnits) {
-//             if (!aiUnits.empty()) {
-//                 LegionUnit* target = aiUnits.back();
-//                 playerUnit->attack();  // Use the unit's attack method
-//                 target->takeDamage(playerUnit->getHealth());
-//                 std::cout << playerUnit->getName() << " attacks " << target->getName() << "!" << std::endl;
+void Battle::setTactic(TacticalCommand* tactic) {
+    delete tactic_;
+    tactic_ = tactic;
+}
 
-//                 if (!target->isAlive()) {
-//                     std::cout << target->getName() << " is defeated!" << std::endl;
-//                     aiUnits.pop_back();
-//                 }
-//             }
-//         }
+void Battle::saveTactic(const std::string& label) {
+    tactic_->saveCurrentStrategy(label);
+}
 
-//         // AI units attack Player units
-//         for (auto aiUnit : aiUnits) {
-//             if (!playerUnits.empty()) {
-//                 LegionUnit* target = playerUnits.back();
-//                 aiUnit->attack();  // Use the unit's attack method
-//                 target->takeDamage(aiUnit->getHealth());
-//                 std::cout << aiUnit->getName() << " attacks " << target->getName() << "!" << std::endl;
+void Battle::restoreTactic(const std::string& label) {
+    tactic_->loadStrategy(label);
+}
 
-//                 if (!target->isAlive()) {
-//                     std::cout << target->getName() << " is defeated!" << std::endl;
-//                     playerUnits.pop_back();
-//                 }
-//             }
-//         }
-//     }
+void Battle::displaySavedTactics() {
+    std::cout << "Available tactics:" << std::endl;
+    std::vector<std::string> labels;
+    for (auto& entry : tactic_->getArchives().getArchives()) {
+        labels.push_back(entry.first);
+    }
+    for (const auto& label : labels) {
+        std::cout << "- " << label << std::endl;
+    }
+}
 
-//     if (playerUnits.empty()) {
-//         std::cout << "Player has lost the battle!" << std::endl;
-//     } else {
-//         std::cout << "Player has won the battle!" << std::endl;
+void Battle::startBattle() {
+    std::cout << "Battle started!" << std::endl;
+    displayBattleInfo();
+}
 
-//         // Save the winning strategy for future battles
-//         TacticalMemento* newMemento = planner->createMemento();
-//         archives->addTacticalMemento("LastBattle", newMemento);
-//     }
-// }
+void Battle::updateBattle() {
+    if (!tactic_) {
+        std::cout << "No tactic set. Cannot continue battle." << std::endl;
+        return;
+    }
+
+    std::cout << "Applying current tactic..." << std::endl;
+    tactic_->executeStrategy(units_[0]); // Apply tactic to the first unit as an example
+}
+
+void Battle::endBattle() {
+    std::cout << "Battle ended!" << std::endl;
+}
+
+void Battle::applyStrategy(LegionUnit* unit) {
+    tactic_->executeStrategy(unit);
+}
+
+void Battle::displayBattleInfo() {
+    std::cout << "Current battle status:" << std::endl;
+    for (LegionUnit* unit : units_) {
+        unit->getName();
+        unit->getHealth();
+        unit->isAlive();
+    }
+}

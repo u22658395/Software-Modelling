@@ -25,6 +25,11 @@ public:
         }
     }
 
+    std::map<std::string, TacticalMemento*> getArchives()
+    {
+        return archives;
+    }
+
     ~WarArchives() {
         for (auto& entry : archives) {
             delete entry.second;

@@ -18,6 +18,7 @@ public:
     void attack() {
         std::cout << "CavalryWoodland launching a surprise attack from the trees.\n";
     }
+    ~CavalryWoodland() noexcept override = default;
 };
 
 #endif  // CAVALRYWOODLAND_H

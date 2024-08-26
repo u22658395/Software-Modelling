@@ -30,4 +30,8 @@ void LegionUnit::setDamage(int d)
 {
     damage=d;
 }
+void LegionUnit::applyStrategy(TacticalCommand* tacticalCommand) {
+    std::cout << name << " applying strategy: ";
+    tacticalCommand->executeStrategy(this);
+}
 

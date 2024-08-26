@@ -1,34 +1,36 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 
+#include <vector>
 #include "LegionUnit.h"
 #include "TacticalCommand.h"
-#include "Ambush.h"
-#include <vector>
-#include <iostream>
 
 class Battle {
+private:
+    std::vector<LegionUnit*> units_;
+    TacticalCommand* tactic_;
+
+protected:
+    void displayBattleInfo();
+
 public:
-    TacticalCommand tacticalCommand;
+    Battle();
+    ~Battle();
 
-    void simulateCombat(std::vector<LegionUnit*>& playerUnits, std::vector<LegionUnit*>& aiUnits) {
-        std::cout << "Starting battle simulation...\n";
+    void addUnit(LegionUnit* unit);
+    void removeUnit(LegionUnit* unit);
 
-        // Engage player units with their strategy
-        for (auto unit : playerUnits) {
-            tacticalCommand.executeStrategy(unit);
-            unit->attack();
-        }
+    void setTactic(TacticalCommand* tactic);
+    
+    void saveTactic(const std::string& label);
+    void restoreTactic(const std::string& label);
+    void displaySavedTactics();
 
-        // Engage AI units with a different strategy
-        tacticalCommand.setStrategy(new Ambush());
-        for (auto unit : aiUnits) {
-            tacticalCommand.executeStrategy(unit);
-            unit->attack();
-        }
+    void startBattle();
+    void updateBattle();
+    void endBattle();
 
-        std::cout << "Battle simulation completed.\n";
-    }
+    void applyStrategy(LegionUnit* unit);
 };
 
-#endif
+#endif // BATTLE_H

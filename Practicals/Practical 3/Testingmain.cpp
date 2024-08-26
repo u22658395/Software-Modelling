@@ -1,44 +1,50 @@
+#include <iostream>
+#include "LegionFactory.h"
+#include "WoodlandFactory.h"
 #include "Battle.h"
-#include "OpenFieldFactory.h"
-#include "Ambush.h"
 #include "LegionUnit.h"
-#include "TacticalCommand.h"
-#include "WarArchives.h"
-#include <vector>
+#include "Infantry.h"
+#include "Cavalry.h"
+#include "Artillery.h"
+// Add other necessary headers
+
 
 int main() {
-    // Create the LegionFactory for Open Field units
-    OpenFieldFactory*OF= new OpenFieldFactory(1500);
+    WoodlandFactory woodlandFactory(1000);
 
-    // Create player and AI units using the factory
-    std::vector<LegionUnit*> playerUnits;
-    std::vector<LegionUnit*> aiUnits;
+    Battle* battle = new Battle();
 
-    playerUnits.push_back(OF->createInfantry());
-    playerUnits.push_back(OF->createCavalry());
-    playerUnits.push_back(OF->createArtillery());
+    // Create units
+    Infantry* infantry = woodlandFactory.createInfantry();
+    Cavalry* cavalry = woodlandFactory.createCavalry();
+    Artillery* artillery = woodlandFactory.createArtillery();
 
-    aiUnits.push_back(OF->createInfantry());
-    aiUnits.push_back(OF->createCavalry());
-    aiUnits.push_back(OF->createArtillery());
+    battle->addUnit(infantry);
+    battle->addUnit(cavalry);
+    battle->addUnit(artillery);
 
-    // Set up the battle simulation
-    TacticalCommand commands;
-    Battle battle;
+    // Set initial tactic
+    // BattleStrategy* fortification = new Fortification();
+    // battle->setTactic(fortification);
 
-    // Set an initial strategy for the player
-     commands.setStrategy(new Ambush());
-     commands.saveCurrentStrategy("Player Ambush Strategy");
+    // Start battle
+    battle->startBattle();
 
-    // Simulate the battle
-    battle.simulateCombat(playerUnits, aiUnits);
+    // Engage units
+    battle->applyStrategy(infantry);
 
-    // Load a previous strategy
-     commands.loadStrategy("Player Ambush Strategy");
+    // Save tactic
+    battle->saveTactic("Fortified Position");
 
-    // Clean up allocated units
-    for (auto unit : playerUnits) delete unit;
-    for (auto unit : aiUnits) delete unit;
+    // Restore tactic
+    battle->restoreTactic("Fortified Position");
+    battle->applyStrategy(infantry);
+
+    // Clean up
+    delete infantry;
+    delete cavalry;
+    delete artillery;
+    // delete fortification;
 
     return 0;
 }
