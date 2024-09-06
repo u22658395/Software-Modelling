@@ -1,44 +1,54 @@
 #ifndef INFANTRY_H
 #define INFANTRY_H
 #include <iostream>
+#include <vector> 
 #include "LegionUnit.h"
 
+
 class Infantry : public LegionUnit {
+    
 private:
-    // std::string name;
-    std::vector<UnitComponent*> units;
+    std::vector<LegionUnit*> units;
 
 public:
-    Infantry() : LegionUnit(100, 20, "Infantry") {}
+   Infantry()  : LegionUnit(100, 20, "Infantry",100,100) {}
 
-void move() {
-    std::cout << name << " infantry moves" << std::endl;
-}
+    void move(){
+        std::cout << "Infantry moves" << std::endl;
+    }
 
-void attack() {
-    std::cout << name << " infantry attacks" << std::endl;
-}
+    void attack() {
+        std::cout << "Infantry attacks" << std::endl;
+          std::cout << R"(
+_/﹋\_
+(҂`_´)
+<,︻╦╤─ ҉ - -
+_/﹋\_
+    )" << std::endl;
+    }
 
-    ~Infantry()
-    {
+    ~Infantry() {
         for (auto unit : units) {
-        delete unit;
+            if(unit!=NULL)
+            {
+                delete unit;
+            }
+        }
+        units.clear();
     }
-    }
-    void add(UnitComponent* component) {
-    units.push_back(component);
-}
 
-void remove(UnitComponent* component) {
-    for (auto it = units.begin(); it != units.end(); ++it) {
-        if (*it == component) {
-            units.erase(it);
-            break;  // Break out of the loop after removing the component
+    void add(LegionUnit* component) {
+        units.push_back(component);
+    }
+
+    void remove(LegionUnit* component) {
+        for (auto it = units.begin(); it != units.end(); ++it) {
+            if (*it == component) {
+                units.erase(it);
+                break;
+            }
         }
     }
-}
-
 };
 
-#endif
-
+#endif // INFANTRY_H

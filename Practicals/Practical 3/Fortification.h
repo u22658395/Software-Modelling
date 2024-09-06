@@ -2,8 +2,10 @@
 #define FORTIFICATION_H
 
 #include "BattleStrategy.h"
-#include "LegionUnit.h"
 #include <cstdlib>
+#include"Infantry.h"
+#include"Artillery.h"
+#include"Cavalry.h"
 
 class Fortification : public BattleStrategy {
 public:

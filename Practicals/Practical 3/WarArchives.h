@@ -10,6 +10,9 @@ private:
     std::map<std::string, TacticalMemento*> archives;
 
 public:
+    WarArchives() : archives() { 
+        
+    }
     void addTacticalMemento(const std::string& label, TacticalMemento* memento) {
         archives[label] = memento;
     }

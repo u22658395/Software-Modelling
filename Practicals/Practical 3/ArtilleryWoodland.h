@@ -5,19 +5,23 @@
 
 class ArtilleryWoodland : public Artillery {
 public:
-    ArtilleryWoodland() {
-        // Custom attributes for Woodland Artillery
-        attackPower = 90;
-        defensePower = 50;
-    }
+    // ArtilleryWoodland() {
+        
+    // }
 
-    void move() {
-        std::cout << "ArtilleryRiverbank rolling along the river's edge with caution.\n";
-    }
+//     void move() {
+//         std::cout << "ArtilleryRiverbank rolling along the river's edge with caution.\n";
+//     }
 
-    void attack() {
-        std::cout << "ArtilleryRiverbank launching heavy bombardment from the Woodland.\n";
-    }
+//     void attack() {
+//     std::cout << " Artillery attacks" << std::endl;
+//       std::cout << R"(
+//     ░░░░░░███████ ]▄▄▄▄▄▄▄▄
+//  ▂▄▅█████████▅▄▃▂        
+// [███████████████████]. 
+// ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤.. 
+//     )" << std::endl;
+// }
     ~ArtilleryWoodland() noexcept override = default;
 
 };

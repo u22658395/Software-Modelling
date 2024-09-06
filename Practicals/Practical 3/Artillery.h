@@ -1,35 +1,48 @@
 #ifndef ARTILLERY_H
 #define ARTILLERY_H
 #include <iostream>
+#include <vector> 
 #include "LegionUnit.h"
 
-class Artillery : public LegionUnit {
+
+class Artillery : public LegionUnit{
 private:
     // std::string name;
-    std::vector<UnitComponent*> units;
+    std::vector<LegionUnit*> units;
 
 public:
-    Artillery() : LegionUnit(100, 20, "Artillery") {}
+    Artillery() : LegionUnit(100, 20, "Artillery",100,100) {}
 
 void move() {
-    std::cout << name << " Artillery moves" << std::endl;
+    std::cout << " Artillery moves" << std::endl;
 }
 
 void attack() {
-    std::cout << name << " Artillery attacks" << std::endl;
+    std::cout << " Artillery attacks" << std::endl;
+      std::cout << R"(
+    ░░░░░░███████ ]▄▄▄▄▄▄▄▄
+ ▂▄▅█████████▅▄▃▂        
+[███████████████████]. 
+◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤.. 
+    )" << std::endl;
 }
 
     virtual ~Artillery()
     {
         for (auto unit : units) {
-        delete unit;
+        if(unit!=NULL)
+            {
+                delete unit;
+            }
     }
     }
-    void add(UnitComponent* component) {
+    void add(LegionUnit* component) {
     units.push_back(component);
+
+
 }
 
-void remove(UnitComponent* component) {
+void remove(LegionUnit* component) {
     for (auto it = units.begin(); it != units.end(); ++it) {
         if (*it == component) {
             units.erase(it);

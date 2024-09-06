@@ -4,11 +4,11 @@
 #include <string>
 #include <iostream>
 #include "UnitComponent.h"
-#include "TacticalCommand.h"
+// #include "TacticalCommand.h"
 
 class TacticalCommand;
 
-class LegionUnit : public UnitComponent {
+class LegionUnit : UnitComponent{
 protected:
     int health;
     int damage;
@@ -18,18 +18,21 @@ protected:
 public:
     int attackPower;
     int defensePower;
-    LegionUnit(int hp, int dmg, const std::string& unitName)
-        : health(hp), damage(dmg), name(unitName) {}
+    // LegionUnit();
+    LegionUnit(int hp, int dmg, const std::string& unitName,int attack,int defence)
+        : health(hp), damage(dmg), name(unitName), attackPower(attack),defensePower(defence){}
 
-    virtual void applyStrategy(TacticalCommand* tacticalCommand);
-    bool isAlive() const;
+    void applyStrategy(TacticalCommand* tacticalCommand);
+    bool isAlive();
     void takeDamage(int dmg);
     int getHealth() const;
     std::string getName() const;
-    void setHealth(int h);
-    void setDamage(int d);
 
     virtual ~LegionUnit() ;
+    virtual void move() override=0;
+    virtual void attack() override=0;
+    virtual void add(LegionUnit* component){};
+    virtual void remove(LegionUnit* component){};
 };
 
 #endif

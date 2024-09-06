@@ -5,19 +5,19 @@
 
 class CavalryRiverbank : public Cavalry {
 public:
-    CavalryRiverbank() {
-        // Custom attributes for Riverbank Cavalry
-        attackPower = 70;
-        defensePower = 65;
-    }
+    // CavalryRiverbank() {
+    //     // Custom attributes for Riverbank Cavalry
+    //     attackPower = 70;
+    //     defensePower = 65;
+    // }
 
-    void move() {
-        std::cout << "CavalryRiverbank navigating through the river's edge.\n";
-    }
+    // void move() {
+    //     std::cout << "CavalryRiverbank navigating through the river's edge.\n";
+    // }
 
-    void attack() {
-        std::cout << "CavalryRiverbank charging along the riverbank with great force.\n";
-    }
+    // void attack() {
+    //     std::cout << "CavalryRiverbank charging along the riverbank with great force.\n";
+    // }
     ~CavalryRiverbank() noexcept override = default;
 };
 

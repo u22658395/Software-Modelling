@@ -1,8 +1,10 @@
 #ifndef FLANKING_H
 #define FLANKING_H
-#include "BattleStrategy.h";
-#include "LegionUnit.h";
+#include "BattleStrategy.h"
 #include <cstdlib>
+#include"Infantry.h"
+#include"Artillery.h"
+#include"Cavalry.h"
 
 class Flanking :public  BattleStrategy {
     public:

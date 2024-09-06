@@ -1,11 +1,16 @@
 #include "LegionUnit.h"
+#include "TacticalCommand.h"
 
-bool LegionUnit::isAlive() const {
+
+bool LegionUnit::isAlive() {
     return health > 0;
 }
 
 void LegionUnit::takeDamage(int dmg) {
     health -= dmg;
+    defensePower=damage;
+    attackPower=health;
+    damage=dmg;
 }
 
 int LegionUnit::getHealth() const {
@@ -15,23 +20,14 @@ int LegionUnit::getHealth() const {
 std::string LegionUnit::getName() const {
     return name;
 }
-void LegionUnit::setHealth(int h)
-{
-    if(h<0)
-    {
-        this->health=0;
-    }
-    else
-    {
-        this->health=h;
-    }
-}
-void LegionUnit::setDamage(int d)
-{
-    damage=d;
-}
+
 void LegionUnit::applyStrategy(TacticalCommand* tacticalCommand) {
     std::cout << name << " applying strategy: ";
     tacticalCommand->executeStrategy(this);
 }
+
+
+LegionUnit::~LegionUnit() {
+}
+
 

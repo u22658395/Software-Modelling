@@ -9,6 +9,7 @@ private:
 
 public:
     TacticalPlanner() : currentStrategy(nullptr) {}
+    
 
     void setStrategy(BattleStrategy* strategy) {
         if (currentStrategy) {
@@ -18,6 +19,7 @@ public:
     }
 
     TacticalMemento* createMemento() const {
+       
         return new TacticalMemento(currentStrategy);
     }
 
