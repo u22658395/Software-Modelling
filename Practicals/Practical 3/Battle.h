@@ -11,7 +11,7 @@ private:
     TacticalCommand* tactic_;
 
 protected:
-    void displayBattleInfo();
+    
 
 public:
     Battle();
@@ -24,6 +24,7 @@ public:
     
     void saveTactic(const std::string& label);
     void restoreTactic(const std::string& label);
+    void displayBattleInfo();
     void displaySavedTactics();
 
     void startBattle();
