@@ -7,7 +7,10 @@ class ExtraBarn : public Decorator
     int extraCapacity;
     public:
     ExtraBarn(std::shared_ptr<CropField> field, int extraCapacity);
-    int getLeftoverCapacity() const override ;
+    int getLeftoverCapacity() const  ;
+    int harvestCrops(int yield);
+    int getLeftoverCapacity();
+     
 };
 
 #endif

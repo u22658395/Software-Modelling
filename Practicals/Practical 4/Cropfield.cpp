@@ -3,22 +3,34 @@
 #include <iostream>
 #include <algorithm> 
 
-CropField:: CropField(std::string cropType, int capacity, std::string soilState)
+CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilState> soilState)
 {
-
+     this->croptype=cropType;
+    this->capacity=capacity;
+    this->soilState=soilState;
+    std::cout<<this->croptype;
+    currentStorage=100;
 }
         
     int CropField::getTotalCapacity(){
+        
         return capacity; 
     }
+
     std::string CropField::getCropType() 
     { 
         return croptype; 
     }
+
     std::string CropField::getSoilStateName() 
     { 
-        return state->getName(); 
+        return soilState->getName(); 
     }
+
+
+
+
+
     void CropField::Plant(int p)
     {
         noPlants+=p;
@@ -52,10 +64,18 @@ CropField:: CropField(std::string cropType, int capacity, std::string soilState)
 
     void CropField:: harvest(int yield) 
     {
-        currentStorage = std::min(currentStorage + yield, capacity);
-        if (currentStorage == capacity) {
-           callDeliveryTruck();
+        // currentStorage = std::min(currentStorage + yield, capacity);
+        // if (currentStorage == capacity) {
+        //    callDeliveryTruck();
+        // }
+        if(yield > currentStorage){
+            cout << "Trying to harvest more than what you have planted or have in storage";
+            return;
         }
+
+        this->soilState->harvestCrops(yield);
+        currentStorage-=yield;
+        callDeliveryTruck();
     }
 
     void CropField:: checkSoil() 
@@ -101,8 +121,15 @@ CropField:: CropField(std::string cropType, int capacity, std::string soilState)
     {
         for (const auto& truck : trucks) 
         {
-            if(truck->getTruckName()=="DeliveryTruck")
+            if(truck->getTruckName() =="DeliveryTruck")
             truck->update();
         }
     }
+
+    int CropField:: getLeftoverCapacity() const
+    {
+        return currentStorage;
+    }
+
+    
 

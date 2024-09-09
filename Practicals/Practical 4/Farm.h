@@ -1,14 +1,18 @@
 #ifndef FARM_H
 #define FARM_H
 #include <iostream>
-#include "Soilstate.h"
+
+#include <memory>
+#include <vector>
 using namespace std;
+
+class SoilState;
 
 class Farm {
 protected:
     int capacity;
     std:: string croptype;
-    SoilState* state;
+    std::shared_ptr<SoilState> soilState;
     double waterlevel;
     int noPlants;
     int noAnimals;
@@ -18,10 +22,12 @@ public:
     virtual std::string getCropType() = 0;
     virtual std::string getSoilStateName()= 0;
     virtual ~Farm() = default;
-    void setSoilState(SoilState* state)
-    {
-        this->state=state;
-    }
+    // virtual void addFarmUnit(std::shared_ptr<Farm> unit)=0;
+    virtual std::vector<std::shared_ptr<Farm>> getUnits() const = 0;
+    void setSoilState(std::shared_ptr<SoilState> soilState);
+    
+    int getCapacity();
+    
     
 };
 

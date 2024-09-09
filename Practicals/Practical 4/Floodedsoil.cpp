@@ -1,19 +1,20 @@
 #ifndef FloodedSoil_CPP
 #define FloodedSoil_CPP
 #include "FloodedSoil.h"
-#include "FloodedSoil.h"
 
+#include "Cropfield.h"
 
-int harvestCrops(int baseYield,CropField* field) 
+int FloodedSoil:: harvestCrops(int yield)
 {
+    cout << "The harvest produced " << yield*0 << " - the soiil is floodes";
     return 0;
 
 }
-void rain(CropField* field) 
+void FloodedSoil:: rain(CropField* field) 
 {
     
 }
-std::string getName() 
+std::string FloodedSoil:: getName() 
 {
     return "Flooded";
 }

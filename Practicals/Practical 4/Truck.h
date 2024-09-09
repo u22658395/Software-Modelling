@@ -1,6 +1,6 @@
 #ifndef TRUCK_H
 #define TRUCK_H
-
+#include <string>
 class Truck {
     
 protected:

@@ -1,14 +1,14 @@
 #ifndef BasicCropField_CPP
 #define  BasicCropField_CPP
+#include <algorithm>
 #include "BasicCropField.h"
 
-BasicCropField:: BasicCropField(std::string cropType, int capacity, std::shared_ptr<SoilState> initialState)
+BasicCropField:: BasicCropField(std::string cropType, int capacity, std::shared_ptr<SoilState> initialState) :  CropField(cropType,capacity,initialState)
 {
-
 }
 int BasicCropField:: harvestCrops(int baseYield) {
         int actualYield = soilState->harvestCrops(baseYield);
-        currentStorage = std::min(currentStorage + actualYield, totalCapacity);
+        currentStorage = std::min(currentStorage + actualYield, capacity);
         return actualYield;
     }
 
@@ -19,6 +19,6 @@ int BasicCropField:: harvestCrops(int baseYield) {
     }
 
     int BasicCropField:: getLeftoverCapacity() const {
-        return totalCapacity - currentStorage;
+        return capacity - currentStorage;
     }
 #endif

@@ -11,6 +11,14 @@
     void DeliveryTruck:: update()
     {
         std::cout << "Delivery Truck notified: Collecting harvested crops from the crop field.\n";
+                     std::cout << R"(
+                     
+──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+───▄▄██▌█ Delivery Truck
+▄▄▄▌▐██▌█  
+███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+▀(⊙)▀▀▀▀▀▀▀(⊙)(⊙)▀▀▀▀▀▀▀▀▀▀(⊙ ...........
+    )" << std::endl;
     }
     void DeliveryTruck:: startEngine()
     {

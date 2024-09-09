@@ -6,6 +6,7 @@
 #include <vector>
 #include "Truck.h"
 #include <memory>
+
 class CropField : public Farm {
 
 protected:
@@ -16,18 +17,19 @@ protected:
     std::vector<std::shared_ptr<Truck>> trucks;  // List of trucks (observers)
 
 public:
-    CropField(std::string cropType, int capacity, std::string soilState);
+    CropField();
+    CropField(std::string cropType, int capacity, std::shared_ptr<SoilState> soilState);
 
-    int getTotalCapacity() override;
-    std::string getCropType() override;
-    std::string getSoilStateName() override;
+    int getTotalCapacity() ;
+    std::string getCropType();
+    std::string getSoilStateName();
     
     void Plant(int p);
     void WaterPlant(double w);
 
-    virtual int harvestCrops(int baseYield) = 0;
-    virtual void increaseProduction() = 0;
-    virtual int getLeftoverCapacity() const = 0;
+    virtual int harvestCrops(int baseYield);
+    virtual void increaseProduction();
+    virtual int getLeftoverCapacity() const ;
     
 
     //observer
@@ -45,9 +47,19 @@ public:
     void buyTruck(std::shared_ptr<Truck> truck) ;
     void sellTruck(std::shared_ptr<Truck> truck);
 
-        void CropField:: callDeliveryTruck() ;
+        void callDeliveryTruck() ;
     
-        void CropField:: callFertilizerTruck() ;
+        void callFertilizerTruck() ;
+
+
+
+    // void addFarmUnit(std::shared_ptr<Farm> unit){
+        
+    // }
+    std::vector<std::shared_ptr<Farm>> getUnits() const{
+        
+        return {};
+    }    
     
 
 };

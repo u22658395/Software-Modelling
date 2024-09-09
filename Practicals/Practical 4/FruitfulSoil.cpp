@@ -2,18 +2,20 @@
 #define FruitfulSoil_CPP
 #include "FruitfulSoil.h"
 #include "FloodedSoil.h"
+#include "Cropfield.h"
 
 
-int harvestCrops(int baseYield) 
+int FruitfulSoil:: harvestCrops(int yield) 
 {
-    return baseYield*3;
+    cout << "The harvest produced " << yield*3 ;
+    return yield*3;
 
 }
-void rain(CropField* field) 
+void FruitfulSoil:: rain(CropField* field) 
 {
-    field->setSoilState(new FloodedSoil() );
+    field->setSoilState(std::make_shared<FloodedSoil>());
 }
-std::string getName() 
+std::string FruitfulSoil:: getName() 
 {
     return "Fruitful";
 }

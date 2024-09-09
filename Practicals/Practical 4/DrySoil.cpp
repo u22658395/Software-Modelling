@@ -2,18 +2,20 @@
 #define DrySoil_CPP
 #include "DrySoil.h"
 #include "FruitfulSoil.h"
+#include "Cropfield.h"
 
-
-int harvestCrops(int baseYield) 
+int DrySoil ::harvestCrops(int yield) 
 {
-    return baseYield;
+    cout << "The harvest produced " << yield ;
+    return yield;
 
 }
-void rain(CropField* field) 
+
+void DrySoil :: rain(CropField* field) 
 {
-    field->setSoilState(new FruitfulSoil() );
+    field->setSoilState(std::make_shared<FruitfulSoil>() );
 }
-std::string getName() 
+std::string DrySoil :: getName() 
 {
     return "Dry";
 }

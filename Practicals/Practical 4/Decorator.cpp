@@ -1,19 +1,37 @@
-#ifndef Decorator_CPP
-#define  Decorator_CPP
-#include "Decorator.h"
-int Decorator:: harvestCrops(int baseYield)  
-{
-    return decoratedField->harvestCrops(baseYield);
-}
+// #ifndef Decorator_CPP
+// #define  Decorator_CPP
+// #include "Decorator.h"
 
-void Decorator:: increaseProduction()  
-{
-    decoratedField->increaseProduction();
-}
+// Decorator::Decorator(std::shared_ptr<CropField> field) : CropField(*field), decoratedField(field) {}
 
-int Decorator:: getLeftoverCapacity() const  
-{
-    return decoratedField->getLeftoverCapacity();
-}
+// int Decorator:: harvestCrops(int baseYield)  
+// {
+//     return decoratedField->harvestCrops(baseYield);
+// }
 
-#endif
+// void Decorator:: increaseProduction()  
+// {
+//     decoratedField->increaseProduction();
+// }
+
+// int Decorator:: getLeftoverCapacity() const  
+// {
+//     return decoratedField->getLeftoverCapacity();
+// }
+
+
+
+// int CropField::harvestCrops(int baseYield)
+// {
+//     return baseYield;
+// }
+// void CropField::increaseProduction()
+// {
+
+// }
+// int CropField::getLeftoverCapacity()const 
+// {
+//     return currentStorage;
+// }
+
+// #endif

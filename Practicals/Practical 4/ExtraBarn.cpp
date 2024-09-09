@@ -10,6 +10,10 @@ int ExtraBarn:: getLeftoverCapacity() const
 {
     return decoratedField->getLeftoverCapacity() + extraCapacity;
 }
+std::vector<std::shared_ptr<Farm>> ExtraBarn:: getUnits()
+{
+    return std::vector<std::shared_ptr<Farm>>();
+}
 
 
 #endif

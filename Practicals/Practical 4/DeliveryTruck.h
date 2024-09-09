@@ -6,7 +6,7 @@
 class DeliveryTruck :public Truck
 {
     public:
-    
+    DeliveryTruck();
     void update();
    
     void startEngine();

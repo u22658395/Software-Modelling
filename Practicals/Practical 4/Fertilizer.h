@@ -5,12 +5,12 @@
 class Fertilizer : public Decorator
 {
     public:
-    Fertilizer(std::shared_ptr<CropField> field) : Decorator(field) {}
-
-    void increaseProduction() override {
-        decoratedField->increaseProduction();  // Apply fertilizer
-        // Additional logic if needed
-    }
+    Fertilizer(std::shared_ptr<CropField> field);
+    void increaseProduction();
+    int harvestCrops(int yield);
+    int getLeftoverCapacity();
+        
+    
 
 };
 
