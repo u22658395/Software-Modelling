@@ -22,4 +22,4 @@ public:
 
 };
 
-#endif  // ARTILLERYRIVERBANK_H
+#endif 

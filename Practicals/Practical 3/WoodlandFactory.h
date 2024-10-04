@@ -8,13 +8,13 @@
 class WoodlandFactory : public LegionFactory {
 public:
 WoodlandFactory(int initialBudget) : LegionFactory(initialBudget) {}
-    Infantry* createInfantry() {
+    LegionUnit* createInfantry() {
         return new InfantryWoodland();
     }
-    Cavalry* createCavalry() {
+    LegionUnit* createCavalry() {
         return new CavalryWoodland();
     }
-    Artillery* createArtillery() {
+    LegionUnit* createArtillery() {
         return new ArtilleryWoodland();
     }
 };

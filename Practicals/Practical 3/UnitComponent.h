@@ -6,11 +6,17 @@
 #include <iostream>
 
 class UnitComponent {
+
 public:
+    int attackPower;
+    int defensePower;
+
+    int health;
+    int damage;
+    std::string name;
     virtual void move() = 0;
     virtual void attack() = 0;
-    virtual void add(UnitComponent* component) {}
-    virtual void remove(UnitComponent* component) {}
+ 
     ~UnitComponent()
     {
 

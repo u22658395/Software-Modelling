@@ -5,7 +5,7 @@
 #include "ArtilleryOpenField.h"
 #include "LegionFactory.h"
 
-class OpenFieldFactory : LegionFactory {
+class OpenFieldFactory : public LegionFactory {
 
 
 public:

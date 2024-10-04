@@ -10,9 +10,9 @@ protected:
     int budget;
 public:
     LegionFactory(int initialBudget) : budget(initialBudget) {}
-    virtual Infantry* createInfantry() = 0;
-    virtual Cavalry* createCavalry() = 0;
-    virtual Artillery* createArtillery() = 0;
+    virtual LegionUnit* createInfantry() = 0;
+    virtual LegionUnit* createCavalry() = 0;
+    virtual LegionUnit* createArtillery() = 0;
     int getBudget()
 	{
 		return budget;
@@ -23,14 +23,14 @@ public:
 	}
     void deployArtillery() {
         if (budget >= 500) {  // Assume the cost of deploying artillery is 500
-            Artillery* artillery = createArtillery();
-            std::cout << "Deploying Riverbank-specific Artillery\n";
+            LegionUnit* artillery = createArtillery();
+            std::cout << "Deploying  Artillery\n";
             artillery->move();
             artillery->attack();
             spendBudget(500);
             delete artillery;
         } else {
-            std::cout << "Insufficient budget to deploy Riverbank Artillery\n";
+            std::cout << "Insufficient budget to deploy Artillery\n";
         }
     }
 

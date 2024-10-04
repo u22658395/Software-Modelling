@@ -4,21 +4,28 @@
 #include "WarArchives.h"
 #include "TacticalPlanner.h"
 #include "LegionUnit.h"
+#include "Ambush.h"
 
 class TacticalCommand {
 private:
-    TacticalPlanner planner;
-    WarArchives archives;
+    TacticalPlanner* planner;
+    WarArchives* archives;
     BattleStrategy* strategy;
 
 public:
-    TacticalCommand() : strategy(nullptr) {}
-    
-    TacticalPlanner getPlanner()
+    TacticalCommand()
     {
-        return planner;
+        strategy=new Ambush();
+        planner= new TacticalPlanner();
+        planner->setStrategy(strategy);
+        archives= new WarArchives();
     }
-    WarArchives getArchives(){
+    
+    // TacticalPlanner* getPlanner()
+    // {
+    //     return planner;
+    // }
+    WarArchives* getArchives(){
         return archives;
     }
 
@@ -28,17 +35,19 @@ public:
     }
 
     void executeStrategy(LegionUnit* unit) {
-        if (strategy) strategy->engage(unit);
+        if (strategy &&unit) strategy->engage(unit);
     }
 
     void saveCurrentStrategy(const std::string& label) {
-        archives.addTacticalMemento(label, planner.createMemento());
+         if (strategy) {
+        archives->addTacticalMemento(label, planner->createMemento());
+        }
     }
 
     void loadStrategy(const std::string& label) {
-        TacticalMemento* memento = archives.getTacticalMemento(label);
+        TacticalMemento* memento = archives->getTacticalMemento(label);
         if (memento) {
-            planner.restoreMemento(memento);
+            planner->restoreMemento(memento);
         }
     }
     BattleStrategy* getStrategy()
@@ -52,10 +61,10 @@ public:
         if (strategy) delete strategy;
     }
 
-    void chooseBestStrategy()
-    {
+    // void chooseBestStrategy()
+    // {
         
-    }
+    // }
     
 };
 

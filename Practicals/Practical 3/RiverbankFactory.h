@@ -8,14 +8,19 @@
 class RiverbankFactory : public LegionFactory {
 public:
     RiverbankFactory(int initialBudget) : LegionFactory(initialBudget) {}
-    Infantry* createInfantry() {
+
+
+    LegionUnit* createInfantry() {
         return new InfantryRiverbank();
     }
-    Cavalry* createCavalry() {
-        return new CavalryRiverbank();
+    LegionUnit* createCavalry() {
+        // return new CavalryRiverbank();
+        return new CavalryOpenField();
     }
-    Artillery* createArtillery() {
-        return new ArtilleryRiverbank();
+    LegionUnit* createArtillery() {
+        // return new ArtilleryRiverbank();
+         return new ArtilleryOpenField();
+        
     }
 };
 #endif

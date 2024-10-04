@@ -1,35 +1,39 @@
 #ifndef CAVALRY_H
 #define CAVALRY_H
 #include <iostream>
+#include <vector> 
 #include "LegionUnit.h"
 
 class Cavalry : public LegionUnit {
 private:
     // std::string name;
-    std::vector<UnitComponent*> units;
+    std::vector<LegionUnit*> units;
 
 public:
-    Cavalry() : LegionUnit(100, 20, "Cavalry") {}
+    Cavalry() : LegionUnit(100, 20, "Cavalry",100,100) {}
 
 void move() {
-    std::cout << name << " Cavalry moves" << std::endl;
+    std::cout << " Cavalry moves" << std::endl;
 }
 
 void attack() {
-    std::cout << name << " Cavalry attacks" << std::endl;
+    std::cout  << " Cavalry attacks" << std::endl;
 }
 
     ~Cavalry()
     {
         for (auto unit : units) {
-        delete unit;
+        if(unit!=NULL)
+            {
+                delete unit;
+            }
     }
     }
-    void add(UnitComponent* component) {
+    void add(LegionUnit* component) {
     units.push_back(component);
 }
 
-void remove(UnitComponent* component) {
+void remove(LegionUnit* component) {
     for (auto it = units.begin(); it != units.end(); ++it) {
         if (*it == component) {
             units.erase(it);

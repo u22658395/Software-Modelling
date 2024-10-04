@@ -8,7 +8,7 @@ private:
     BattleStrategy* savedStrategy;
 
 public:
-    TacticalMemento(BattleStrategy* strategy) : savedStrategy(strategy->clone()) {}
+    TacticalMemento(BattleStrategy* strategy) : savedStrategy(strategy) {}
     
     ~TacticalMemento() {
         delete savedStrategy;

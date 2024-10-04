@@ -6,9 +6,7 @@
 class ArtilleryWoodland : public Artillery {
 public:
     ArtilleryWoodland() {
-        // Custom attributes for Woodland Artillery
-        attackPower = 90;
-        defensePower = 50;
+        
     }
 
     void move() {
