@@ -6,6 +6,7 @@ using namespace std;
 class Device
 {
     private:
+        string type;
         bool on;
         Command toggleOn;
         Command toggleOff;
@@ -13,9 +14,9 @@ class Device
 
     public:
         Device(/* args */);
-        ~Device();
-        string getStatus();
-        void performAction();
+        virtual ~Device();
+        string getStatus()=0;
+        void performAction()=0;
         string getDeviceType();
 
 };
