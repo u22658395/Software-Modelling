@@ -7,15 +7,6 @@
 #include <thread>
 #include <iostream>
 
-// Helper function to simulate animations
-// void animate(const std::string& action, int duration = 5) {
-//     std::cout << action;
-//     for (int i = 0; i < duration; ++i) {
-//         std::cout << ".";
-//         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-//     }
-//     std::cout << " Done!" << std::endl;
-// }
 
 Game::Game() {
     mainFarmSection = std::make_shared<Section>("Main Farm");
@@ -36,11 +27,23 @@ void Game::setup() {
     auto cropField2 = std::make_shared<BasicCropField>("Corn", 120, std::make_shared<FruitfulSoil>());
     auto cropField3 = std::make_shared<BasicCropField>("Barley", 150, std::make_shared<FloodedSoil>());
 
+    auto barn= std::make_shared<Barn>(20);
+    
+
+
     auto fertilizerField1 = std::make_shared<Fertilizer>(cropField1);
     auto extraBarnField2 = std::make_shared<ExtraBarn>(cropField2, 50);
 
     fertilizerField1->increaseProduction();
-    std::cout<<"Fertilized fields"<<std::endl;
+    fertilizerField1-> harvestCrops(10);
+    fertilizerField1->getCapacity();
+
+
+
+    extraBarnField2->increaseProduction();
+    extraBarnField2-> harvestCrops(10);
+    
+    extraBarnField2->getCapacity();
     
 
     northSection->addFarmUnit(fertilizerField1);
@@ -49,6 +52,8 @@ void Game::setup() {
 
     auto cropField4 = std::make_shared<BasicCropField>("Soy", 90, std::make_shared<DrySoil>());
     southSection->addFarmUnit(cropField4);
+    southSection->addFarmUnit(cropField2);
+    southSection->addFarmUnit(barn);
 
     // Adding trucks
     auto deliveryTruck = std::make_shared<DeliveryTruck>();
@@ -57,37 +62,40 @@ void Game::setup() {
     trucks.push_back(deliveryTruck);
     trucks.push_back(fertilizerTruck);
 
-    fertilizerField1->addTruck(fertilizerTruck);
-    extraBarnField2->addTruck(deliveryTruck);
+    fertilizerField1->buyTruck(fertilizerTruck);
+    fertilizerField1->buyTruck(deliveryTruck);
+    extraBarnField2->buyTruck(deliveryTruck);
     // extraBarnField2->addTruck(fertilizerTruck);
     extraBarnField2->buyTruck(fertilizerTruck);
+
     
 }
 
 void Game::start() {
+     std::cout<<"\n\n\n";
     std::cout << "Game Started!" << std::endl;
     // animate("Loading farm details");
     std::cout << "////////////Breadth First Traversal (BFT)//////////////////" << std::endl;
 
     BFT bft(mainFarmSection);
-    bft.firstFarm();
+    // bft.firstFarm();
     while (!bft.isDone()) {
         auto currentFarm = bft.currentFarm();
         // animate("Checking farm " + currentFarm->getCropType(), 3);
-        std::cout << "Farm: " << currentFarm->getCropType() << " (Capacity: " << currentFarm->getTotalCapacity() << ")" << std::endl;
+        std::cout<< currentFarm->getCropType() << " (Capacity: " << currentFarm->getTotalCapacity() << ")" << std::endl;
         bft.next();
     }
-
+    std::cout<<"\n\n\n";
     std::cout << "////////////Depth First Traversal (DFT)//////////////////" << std::endl;
     DFT dft(mainFarmSection);
     dft.firstFarm();
     while (!dft.isDone()) {
         auto currentFarm = dft.currentFarm();
         // animate("Inspecting farm " + currentFarm->getCropType(), 2);
-        std::cout << "Farm: " << currentFarm->getCropType() << " (Capacity: " << currentFarm->getTotalCapacity() << ")" << std::endl;
+        std::cout<< currentFarm->getCropType() << " (Capacity: " << currentFarm->getTotalCapacity() << ")" << std::endl;
         dft.next();
     }
-
+    std::cout<<"\n\n\n";
     // Simulate logistics operations with trucks
     std::cout << "////////////Logistics Operations//////////////////" << std::endl;
     // animate("Trucks are delivering fertilizer", 6);
@@ -111,7 +119,22 @@ void Game::start() {
         }
     }
 
+     std::cout<<"\n\n\n";
+    std::cout << "RAINY DAY" << std::endl;
+    for (auto& section : mainFarmSection->getUnits()) {
+        auto subSection = std::dynamic_pointer_cast<Section>(section);
+        if (subSection) {
+            for (auto& field : subSection->getUnits()) {
+                auto cropField = std::dynamic_pointer_cast<BasicCropField>(field);
+                if (cropField) {
+                    std::cout<<"Field: "<<cropField->getCropType()<<std::endl;
+                    cropField->getState()->rain(cropField);
+                }
+            }
+        }
+    }
     // Harvesting
+     std::cout<<"\n\n\n";
     std::cout << "Harvesting crops..." << std::endl;
     for (auto& section : mainFarmSection->getUnits()) {
         auto subSection = std::dynamic_pointer_cast<Section>(section);
@@ -119,19 +142,23 @@ void Game::start() {
             for (auto& field : subSection->getUnits()) {
                 auto cropField = std::dynamic_pointer_cast<BasicCropField>(field);
                 if (cropField) {
-                    cropField->harvest(50);  // Example yield
+                    std::cout<<"Field: "<<cropField->getCropType()<<std::endl;
+                    cropField->harvest(50);  
                     // animate("Harvesting " + cropField->getCropType(), 5);
                 }
             }
         }
     }
 
+
     // Display storage capacity after harvest
-    std::cout << "Trucks in storage " << std::endl;
+    std::cout << "Trucks in storage: " << std::endl;
     for (auto& truck : trucks) {
         std::cout << truck->getTruckName()<< std::endl;
 
     }
+    
+
     
 
 }

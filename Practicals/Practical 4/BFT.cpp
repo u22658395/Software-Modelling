@@ -1,9 +1,9 @@
 #ifndef BFT_CPP
 #define BFT_CPP
 #include "BFT.h"
-#include "Farm.h"
+#include "FarmUnit.h"
 
-BFT::BFT(const std::shared_ptr<Farm>& root) 
+BFT::BFT(const std::shared_ptr<FarmUnit>& root) 
 {
     farmQueue.push(root);
 }
@@ -32,7 +32,7 @@ bool BFT:: isDone() const
     return farmQueue.empty();
 }
 
-std::shared_ptr<Farm> BFT:: currentFarm() const 
+std::shared_ptr<FarmUnit> BFT:: currentFarm() const 
 {
     return farmQueue.empty() ? nullptr : farmQueue.front();
 }

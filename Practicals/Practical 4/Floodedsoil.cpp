@@ -4,15 +4,24 @@
 
 #include "Cropfield.h"
 
+FloodedSoil::FloodedSoil():SoilState("Flooded"){}
+
 int FloodedSoil:: harvestCrops(int yield)
 {
-    cout << "The harvest produced " << yield*0 << " - the soiil is floodes";
+    cout << "The harvest produced " << yield*0 << " - the soiil is floodes"<<endl;
     return 0;
 
 }
-void FloodedSoil:: rain(CropField* field) 
+void FloodedSoil:: rain(std::shared_ptr<CropField> field) 
 {
-    
+        std::cout << "  💧              💧         💧                           💧        💧           💧         💧            💧         💧           \n";
+    std::cout << "        💧                 💧         💧                  💧\n";
+    std::cout << "                                                                                    💧         💧           💧          💧 \n";
+    std::cout << "  💧       💧                                  💧                  💧                 💧                                   💧 \n";
+    std::cout << " 🌳  💧🏡🌳  🌲   👜💧 🏡   🌲       💧 🌳        🌲   💧       🌳      🏡         🌲  💧         🌳               💧  🏡    \n";
+    std::cout << "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n";
+
+ 
 }
 std::string FloodedSoil:: getName() 
 {

@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/boity/OneDrive - University of Pretoria/Second Year/Second Semester/COS 214/Practicals/Software-Modelling/Practicals/Practical 5",
+      "program": "c:/Users/boity/OneDrive - University of Pretoria/Second Year/Second Semester/COS 214/Practicals/Software-Modelling/Practicals/Practical 5/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

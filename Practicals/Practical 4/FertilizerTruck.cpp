@@ -8,18 +8,37 @@ FertilizerTruck:: FertilizerTruck()
 {
     Tname= "FertilizerTruck";
 }
-void FertilizerTruck:: update()
+// void FertilizerTruck:: update()
+// {
+//     std::cout << "Fertilizer Truck notified: Delivering fertilizer to the crop field.\n";
+           
+//                      std::cout << R"(
+                     
+// ──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌............................................................
+// ───▄▄██▌█ Fertilizer Truck
+// ▄▄▄▌▐██▌█                           _____  ______  _____  ____  _____  ____  _____  _____  
+// ███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+// ▀(⊙)▀▀▀▀▀▀▀(⊙)(⊙)▀▀▀▀▀▀▀▀▀▀(⊙ .........................................................
+//     )" << std::endl;
+    
+// }
+
+void FertilizerTruck::update()
 {
-    std::cout << "Fertilizer Truck notified: Delivering fertilizer to the crop field.\n";
-            std::cout << "Delivery Truck notified: Collecting harvested crops from the crop field.\n";
-                     std::cout << R"(
-──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+    
+    std::cout << "\033[31mFertilizer Truck notified: Delivering fertilizer to the crop field.\033[0m\n";
+           
+    
+    std::cout << R"(
+ 
+──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌............................................................
 ───▄▄██▌█ Fertilizer Truck
-▄▄▄▌▐██▌█  
+▄▄▄▌▐██▌█                           _____  ______  _____  ____  _____  ____  _____  _____  
 ███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
-▀(⊙)▀▀▀▀▀▀▀(⊙)(⊙)▀▀▀▀▀▀▀▀▀▀(⊙ .............
+▀(⊙)▀▀▀▀▀▀▀(⊙)(⊙)▀▀▀▀▀▀▀▀▀▀(⊙ .........................................................
     )" << std::endl;
 }
+
 void FertilizerTruck:: startEngine()
 {
     std::cout << "Fertilizer Truck: Engine started.\n";

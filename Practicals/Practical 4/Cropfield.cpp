@@ -3,12 +3,12 @@
 #include <iostream>
 #include <algorithm> 
 
+
 CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilState> soilState)
 {
      this->croptype=cropType;
     this->capacity=capacity;
     this->soilState=soilState;
-    std::cout<<this->croptype;
     currentStorage=100;
 }
         
@@ -19,7 +19,9 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
 
     std::string CropField::getCropType() 
     { 
-        return croptype; 
+            std::string colorCode = "\033[35m";
+            std::string resetCode = "\033[0m";
+        return colorCode+ croptype + resetCode; 
     }
 
     std::string CropField::getSoilStateName() 
@@ -28,22 +30,6 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
     }
 
 
-
-
-
-    void CropField::Plant(int p)
-    {
-        noPlants+=p;
-        if(noPlants>capacity)
-        {
-            noPlants=capacity;
-        }
-    }
-    void CropField::WaterPlant(double w)
-    {
-        waterlevel+=w;
-        
-    }
 
     void CropField::addTruck(std::shared_ptr<Truck> truck) 
     {
@@ -64,10 +50,7 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
 
     void CropField:: harvest(int yield) 
     {
-        // currentStorage = std::min(currentStorage + yield, capacity);
-        // if (currentStorage == capacity) {
-        //    callDeliveryTruck();
-        // }
+  
         if(yield > currentStorage){
             cout << "Trying to harvest more than what you have planted or have in storage";
             return;
@@ -75,7 +58,12 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
 
         this->soilState->harvestCrops(yield);
         currentStorage-=yield;
-        callDeliveryTruck();
+        if(soilState->getName()!="Flooded")
+        {
+            std::cout << "🚜  🌾  🌽  🥕  🍅   🥒  🌿  🫒  🫑  🥬  🧑‍🌾\n";
+
+            callDeliveryTruck();
+        }
     }
 
     void CropField:: checkSoil() 
@@ -100,6 +88,11 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
 
     void CropField:: callDeliveryTruck() 
     {
+       if(trucks.empty())
+       {
+            std:: cout <<"No trucks available for harvest. "<<std:: endl;
+            return;
+       }
         std::cout << "Calling truck for operation...\n";
         Dnotify();  // Notify all trucks
     }
@@ -107,6 +100,7 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
     {
         std::cout << "Calling truck for operation...\n";
         Fnotify();  // Notify all trucks
+        
     }
 
     void CropField:: Fnotify()
@@ -131,5 +125,9 @@ CropField:: CropField(std::string cropType, int capacity, std::shared_ptr<SoilSt
         return currentStorage;
     }
 
+    void CropField:: setCapacity(int c)
+    {
+        capacity=c;
+    }
     
 

@@ -2,6 +2,7 @@
  Barn:: Barn(int capacity)
  {
     this->capacity=capacity;
+    noPlants=0;
  }
 
 int  Barn:: getTotalCapacity()
@@ -10,17 +11,17 @@ int  Barn:: getTotalCapacity()
 }
 std::string  Barn:: getCropType() 
 { 
-    return "None"; 
+    return "Barn"; 
 }
 std::string  Barn:: getSoilStateName() 
 { 
     return "N/A"; 
 }
-void  Barn:: addAnimal(int a)
+void  Barn:: addCrops(int a)
 {
-    noAnimals+=a;
-    if(noAnimals>capacity)
+    noPlants+=a;
+    if(noPlants>capacity)
     {
-        noAnimals=capacity;
+        noPlants=capacity;
     }
 }

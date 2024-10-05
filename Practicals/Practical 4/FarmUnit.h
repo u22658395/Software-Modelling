@@ -8,7 +8,7 @@ using namespace std;
 
 class SoilState;
 
-class Farm {
+class FarmUnit {
 protected:
     int capacity;
     std:: string croptype;
@@ -18,12 +18,13 @@ protected:
     int noAnimals;
     
 public:
+    // FarmUnit(shared_ptr<SoilState> s){soilState =s;}
     virtual int getTotalCapacity() = 0;
     virtual std::string getCropType() = 0;
-    virtual std::string getSoilStateName()= 0;
-    virtual ~Farm() = default;
+    virtual std::string getSoilStateName()=0;
+    virtual ~FarmUnit() = default;
     // virtual void addFarmUnit(std::shared_ptr<Farm> unit)=0;
-    virtual std::vector<std::shared_ptr<Farm>> getUnits() const = 0;
+    virtual std::vector<std::shared_ptr<FarmUnit>> getUnits() const = 0;
     void setSoilState(std::shared_ptr<SoilState> soilState);
     
     int getCapacity();

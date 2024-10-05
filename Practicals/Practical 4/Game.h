@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Farm.h"
+#include "FarmUnit.h"
 #include "BFT.h"
 #include "DFT.h"
 #include "Section.h"
@@ -16,6 +16,7 @@
 #include "DrySoil.h"
 #include "FloodedSoil.h"
 #include "FruitfulSoil.h"
+#include "Barn.h"
 
 class Game {
 private:

@@ -5,9 +5,10 @@
 #include "Soilstate.h"
 
 class FloodedSoil:public SoilState
-{
+{    public:
+     FloodedSoil();
      int harvestCrops(int baseYield);
-     void rain(CropField* field) ;
+     void rain(std::shared_ptr<CropField> field) ;
      std::string getName();
 };
 

@@ -5,11 +5,16 @@
 class CropField;
 
 class SoilState {
-public:
-    virtual int harvestCrops(int baseYield) = 0;
-    virtual void rain(CropField* field) = 0;
-    virtual std::string getName() = 0;
-    virtual ~SoilState() = default;
+    public:
+        SoilState(std::string name){
+            this->name = name;
+        }
+        virtual int harvestCrops(int baseYield) = 0;
+        virtual void rain(std::shared_ptr<CropField> field) = 0;
+        std::string getName(){return this->name;}
+        virtual ~SoilState() = default;
+    protected:
+        std::string name;;
 };
 
 #endif

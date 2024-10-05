@@ -6,8 +6,10 @@
 
 class DrySoil:public SoilState
 {
+     public:
+     DrySoil();
      int harvestCrops(int baseYield);
-     void rain(CropField* field) ;
+     void rain(std::shared_ptr<CropField> field) ;
      std::string getName();
 };
 

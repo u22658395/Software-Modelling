@@ -8,6 +8,7 @@ BasicCropField:: BasicCropField(std::string cropType, int capacity, std::shared_
 }
 int BasicCropField:: harvestCrops(int baseYield) {
         int actualYield = soilState->harvestCrops(baseYield);
+        callDeliveryTruck();
         currentStorage = std::min(currentStorage + actualYield, capacity);
         return actualYield;
     }

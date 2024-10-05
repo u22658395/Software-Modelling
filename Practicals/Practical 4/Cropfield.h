@@ -1,13 +1,13 @@
 #ifndef CROPFIELD_H
 #define CROPFIELD_H
 #include <iostream>
-#include "Farm.h"
+#include "FarmUnit.h"
 #include "Soilstate.h"
 #include <vector>
 #include "Truck.h"
 #include <memory>
 
-class CropField : public Farm {
+class CropField : public FarmUnit {
 
 protected:
     std::string cropType;
@@ -24,8 +24,7 @@ public:
     std::string getCropType();
     std::string getSoilStateName();
     
-    void Plant(int p);
-    void WaterPlant(double w);
+
 
     virtual int harvestCrops(int baseYield);
     virtual void increaseProduction();
@@ -51,15 +50,20 @@ public:
     
         void callFertilizerTruck() ;
 
-
+     void setCapacity(int c);
 
     // void addFarmUnit(std::shared_ptr<Farm> unit){
         
     // }
-    std::vector<std::shared_ptr<Farm>> getUnits() const{
+    std::vector<std::shared_ptr<FarmUnit>> getUnits() const{
         
         return {};
-    }    
+    } 
+
+     std::shared_ptr<SoilState> getState()
+     {
+        return soilState;
+     }
     
 
 };

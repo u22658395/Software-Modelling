@@ -2,7 +2,7 @@
 #define DFT_CPP
 #include "DFT.h"
 
-DFT::DFT(const std::shared_ptr<Farm>& root) {
+DFT::DFT(const std::shared_ptr<FarmUnit>& root) {
         farmStack.push(root);
     }
 
@@ -30,7 +30,7 @@ DFT::DFT(const std::shared_ptr<Farm>& root) {
         return farmStack.empty();
     }
 
-    std::shared_ptr<Farm> DFT:: currentFarm() const 
+    std::shared_ptr<FarmUnit> DFT:: currentFarm() const 
     {
         return farmStack.empty() ? nullptr : farmStack.top();
     }

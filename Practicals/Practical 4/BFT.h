@@ -3,21 +3,21 @@
 #include "FarmIterator.h"
 #include <queue>
 #include <memory>
-#include "Farm.h"
+#include "FarmUnit.h"
 
 class BFT : public FarmIterator {
 private:
-    std::queue<std::shared_ptr<Farm>> farmQueue;
+    std::queue<std::shared_ptr<FarmUnit>> farmQueue;
 
 public:
-    BFT(const std::shared_ptr<Farm>& root);
+    BFT(const std::shared_ptr<FarmUnit>& root);
     void firstFarm()  ;
 
     void next()  ;
 
     bool isDone() const ;
 
-    std::shared_ptr<Farm> currentFarm() const  ;
+    std::shared_ptr<FarmUnit> currentFarm() const  ;
 };
 
 

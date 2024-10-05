@@ -7,7 +7,7 @@ class Fertilizer : public Decorator
     public:
     Fertilizer(std::shared_ptr<CropField> field);
     void increaseProduction();
-    int harvestCrops(int yield);
+    int harvestCrops(int baseYield);
     int getLeftoverCapacity();
         
     

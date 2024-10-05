@@ -6,8 +6,8 @@
 #include <iostream> 
 
     Section:: Section(std::string name) : name(name) {}
-
-    void Section::addFarmUnit(std::shared_ptr<Farm> unit) {
+    int Section::num = 0;
+    void Section::addFarmUnit(std::shared_ptr<FarmUnit> unit) {
         farmUnits.push_back(unit);
     }
 
@@ -20,7 +20,18 @@
     }
 
     std::string Section:: getCropType(){
-        return "Mixed crops"; 
+            std::string colorCode = "\033[32m";
+            std::string resetCode = "\033[0m";
+            if(getSectionName()== "Main Farm")
+            {
+                colorCode="\033[33m";
+            }
+         return colorCode + getSectionName() + resetCode;
+
+    }
+    std:: string Section::getSectionName()
+    {
+        return name;
     }
 
     std::string Section:: getSoilStateName(){
@@ -30,7 +41,7 @@
     {
 
     }
-    std::vector<std::shared_ptr<Farm>> Section:: getUnits() const 
+    std::vector<std::shared_ptr<FarmUnit>> Section:: getUnits() const 
     {
         return farmUnits;
     }

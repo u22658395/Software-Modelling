@@ -9,7 +9,7 @@ class ExtraBarn : public Decorator
     ExtraBarn(std::shared_ptr<CropField> field, int extraCapacity);
     int getLeftoverCapacity() const  ;
     int harvestCrops(int yield);
-    int getLeftoverCapacity();
+    void increaseProduction();
      
 };
 
