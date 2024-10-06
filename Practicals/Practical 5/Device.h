@@ -13,7 +13,7 @@ class Device
         Command toggle;
 
     public:
-        Device(/* args */);
+        Device(string deviceType);
         virtual ~Device();
         string getStatus()=0;
         void performAction()=0;
