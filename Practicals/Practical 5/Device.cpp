@@ -5,6 +5,9 @@ Device::Device(){
     on = false;
 }
 
+Device::~Device(){
+}
+
 Device::Device(string t, bool state){
     type = t;
 }

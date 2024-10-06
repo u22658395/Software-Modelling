@@ -5,12 +5,9 @@
 using namespace std;
 class Device
 {
-    private:
+    protected:
         string type;
         bool on;
-        Command* toggleOn;
-        Command* toggleOff;
-        Command* toggle;
 
     public:
         Device();
@@ -19,6 +16,7 @@ class Device
         virtual string getStatus()=0;
         virtual void toggleState()=0;
         virtual string getDeviceType()=0;
-
+        virtual void turnOn()=0;
+        virtual void turnOff()=0;
 };
 #endif

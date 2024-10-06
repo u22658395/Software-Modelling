@@ -7,19 +7,16 @@ class Room
 {
     private:
         /* data */
-        Command* command;
+        Command* lightCommand;
+        Command* thermostatCommand;
 
     public:
         Room(/* args */);
-        ~Room();
-        
-        void setCommand(Command* command) {
-            this->command = command;
-        }
-
-        void executeCommand() {
-            command->execute();
-        }
+        ~Room();        
+        void setLightCommand(Command* command);        
+        void setThermostatCommand(Command* command);
+        void executeThermostatCommand();        
+        void executeLightCommand();
 
 
 };
