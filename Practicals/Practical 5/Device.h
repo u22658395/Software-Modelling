@@ -15,8 +15,8 @@ class Device
     public:
         Device(string deviceType);
         virtual ~Device();
-        string getStatus()=0;
-        void performAction()=0;
+        virtual string getStatus()=0;
+        virtual void performAction()=0;
         string getDeviceType();
 
 };
