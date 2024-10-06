@@ -2,11 +2,14 @@
 #define OLDLIGHT_H
 class OldLight
 {
-private:
-    /* data */
+protected:
+    bool isOn;
 public:
     OldLight(/* args */);
     ~OldLight();
+    void turnOn();
+    void turnOff();
+    bool getStatus();
 };
 
 #endif

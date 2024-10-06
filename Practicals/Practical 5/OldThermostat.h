@@ -4,11 +4,13 @@
 
 class OldThermostat : public OldDevice
 {
-private:
-    /* data */
+protected:
+    int temp;
 public:
     OldThermostat(/* args */);
     ~OldThermostat();
+    void setTemp(int temp);
+    int getTemp();
 };
 
 #endif
