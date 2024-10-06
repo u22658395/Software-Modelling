@@ -1,5 +1,5 @@
-#ifndef Thermostat_H
-#define Thermostat_H
+#ifndef THERMOSTAT_H
+#define THERMOSTAT_H
 #include "Device.h"
 
 class Thermostat : public Device

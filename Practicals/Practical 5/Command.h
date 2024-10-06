@@ -4,7 +4,7 @@
 
 class Command
 {
-    private:
+    protected:
         Device* device; //this is the receiver
     public:
         Command();

@@ -1,5 +1,5 @@
-#ifndef Lock_H
-#define Lock_H
+#ifndef LOCK_H
+#define LOCK_H
 #include "Device.h"
 
 class Lock : public Device
