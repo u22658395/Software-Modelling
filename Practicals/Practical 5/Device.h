@@ -8,16 +8,17 @@ class Device
     private:
         string type;
         bool on;
-        Command toggleOn;
-        Command toggleOff;
-        Command toggle;
+        Command* toggleOn;
+        Command* toggleOff;
+        Command* toggle;
 
     public:
-        Device(string deviceType);
+        Device();
+        Device(string deviceType, bool state);
         virtual ~Device();
         virtual string getStatus()=0;
-        virtual void performAction()=0;
-        string getDeviceType();
+        virtual void toggleState()=0;
+        virtual string getDeviceType()=0;
 
 };
 #endif

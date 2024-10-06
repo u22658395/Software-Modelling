@@ -1,6 +1,11 @@
 #include "Device.h"
 
-Device::Device(string t){
+Device::Device(){
+    type="";
+    on = false;
+}
+
+Device::Device(string t, bool state){
     type = t;
 }
 

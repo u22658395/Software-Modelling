@@ -2,22 +2,23 @@
 #define ROOM_H
 #include "Command.h"
 
+//this is the Invoker in the Command pattern
 class Room
 {
     private:
         /* data */
-        Command command;
+        Command* command;
 
     public:
         Room(/* args */);
         ~Room();
         
-        void setCommand(Command command) {
-            this.command = command;
+        void setCommand(Command* command) {
+            this->command = command;
         }
 
         void executeCommand() {
-            command.execute();
+            command->execute();
         }
 
 
