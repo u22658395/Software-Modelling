@@ -1,11 +1,13 @@
-#include "Lock.h"
+#include "DoorLock.h"
 
-DoorLock::DoorLock() : Device("Lock", false)
+DoorLock::DoorLock() : Device("Lock")
 {
+    locked = false;
 }
 
-DoorLock::DoorLock(bool state) : Device("Lock", state)
+DoorLock::DoorLock(bool state) : Device("Lock")
 {
+    locked = state;
 }
 
 DoorLock::~DoorLock()
@@ -14,37 +16,22 @@ DoorLock::~DoorLock()
 
 string DoorLock::getStatus()
 {
-    if (on)
+    if (locked)
     {
-        return "on";
+        return "Locked";
     }
 
-    return "off";
+    return "Unlocked";
 }
 
-void DoorLock::turnOn()
-{
-    on = true;
-}
-
-void DoorLock::turnOff()
-{
-    on = true;
-}
 
 void DoorLock::toggleState()
 {
-    on = !on;
+    locked = !locked;
 }
 
-void DoorLock::lock()
-{
-    this->locked = true;
-}
-
-void DoorLock::unlock()
-{
-    this->locked = false;
+void DoorLock::performAction(bool state){
+    locked = state;
 }
 
 void DoorLock::toggleLock()

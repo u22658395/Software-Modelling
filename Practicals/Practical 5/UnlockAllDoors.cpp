@@ -14,6 +14,6 @@ void UnlockAllDoors::execute()
 {
     for (vector<DoorLock>::iterator it = locks.begin(); it != locks.end(); ++it)
     {
-        it->unlock();
+        it->performAction(false);
     }
 }

@@ -31,3 +31,15 @@ void Room::executeLightCommand()
     if(lightCommand != NULL)
         lightCommand->execute();
 }
+
+string Room::getStatus(){
+    
+}
+
+void Room::toggleState(){
+
+}
+
+void Room::performAction(bool state){
+    on = state;
+}

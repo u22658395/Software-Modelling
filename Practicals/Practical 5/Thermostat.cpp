@@ -1,11 +1,13 @@
 #include "Thermostat.h"
 
-Thermostat::Thermostat() : Device("Thermostat", false)
+Thermostat::Thermostat() : Device("Thermostat")
 {
+    on = false;
 }
 
-Thermostat::Thermostat(bool state) : Device("Thermostat", state)
+Thermostat::Thermostat(bool state) : Device("Thermostat")
 {
+    on = state;
 }
 
 Thermostat::~Thermostat()
@@ -14,18 +16,9 @@ Thermostat::~Thermostat()
 
 string Thermostat::getStatus(){
     if(on){
-        return "on";
+        return "On";
     }
-
-    return "off";
-}
-
-void Thermostat::turnOn(){
-    on=true;
-}
-
-void Thermostat::turnOff(){
-    on=true;
+    return "Off";
 }
 
 void Thermostat::toggleState(){
@@ -34,4 +27,9 @@ void Thermostat::toggleState(){
 
 string Thermostat::getDeviceType(){
     return type;
+}
+
+void Thermostat::performAction(bool state)
+{
+    on = state;
 }

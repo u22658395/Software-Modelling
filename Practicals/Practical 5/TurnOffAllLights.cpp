@@ -12,7 +12,7 @@ void TurnOffAllLights::addLight(Light l)
 
 void TurnOffAllLights::execute(){
     for (vector<Light>::iterator it = lights.begin(); it != lights.end(); ++it){
-        it->turnOn();
+        it->performAction(false);
     }
 }
 

@@ -1,11 +1,13 @@
 #include "Light.h"
 
-Light::Light() : Device("Light", false)
+Light::Light() : Device("Light")
 {
+    on = false;
 }
 
-Light::Light(bool state) : Device("Light", state)
+Light::Light(bool state) : Device("Light")
 {
+    on = state;
 }
 
 Light::~Light()
@@ -14,18 +16,10 @@ Light::~Light()
 
 string Light::getStatus(){
     if(on){
-        return "on";
+        return "On";
     }
 
-    return "off";
-}
-
-void Light::turnOn(){
-    on=true;
-}
-
-void Light::turnOff(){
-    on=true;
+    return "Off";
 }
 
 void Light::toggleState(){
@@ -34,4 +28,8 @@ void Light::toggleState(){
 
 string Light::getDeviceType(){
     return type;
+}
+
+void Light::performAction(bool state){
+    on = state;
 }

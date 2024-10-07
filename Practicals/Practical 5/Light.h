@@ -6,6 +6,7 @@ class Light : public Device
 {
     private:
         /* data */
+        bool on;
     public:
         Light();
         Light(bool state);
@@ -13,7 +14,6 @@ class Light : public Device
         virtual string getStatus();
         virtual void toggleState();
         virtual string getDeviceType();
-        virtual void turnOn();
-        virtual void turnOff();
+        virtual void performAction(bool state);
 };
 #endif

@@ -14,6 +14,6 @@ void LockAllDoors::execute()
 {
     for (vector<DoorLock>::iterator it = locks.begin(); it != locks.end(); ++it)
     {
-        it->lock();
+        it->performAction(true);
     }
 }

@@ -1,6 +1,6 @@
 #include "SetThermoTemperature.h"
 
-SetThermoTemperature::SetThermoTemperature(Thermostat*d)
+SetThermoTemperature::SetThermoTemperature(ThermoIntegrator* t)
 {
     if (d != NULL)
     {

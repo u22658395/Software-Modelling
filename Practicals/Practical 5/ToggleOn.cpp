@@ -7,5 +7,5 @@ ToggleOn::ToggleOn(Device* d){
 }
 
 void ToggleOn::execute(){
-    this->device->turnOn();
+    this->device->performAction(true);
 }

@@ -8,5 +8,5 @@ ToggleOff::ToggleOff(Device* d){
 
 void ToggleOff::execute()
 {
-    this->device->turnOff();
+    this->device->performAction(false);
 }
