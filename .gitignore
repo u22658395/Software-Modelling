@@ -4,6 +4,11 @@ main
 Practicals/Practical 1/.vscode/settings.json
 *.zip
 *.pdf
+<<<<<<< HEAD
 Practicals/Practical 5/.vscode/c_cpp_properties.json
 Practicals/Practical 5/.vscode/launch.json
 Practicals/Practical 5/.vscode/settings.json
+=======
+*.vpp*
+*.vux
+>>>>>>> 855eb2c55c33101043ee12118988695f4116d533

@@ -18,7 +18,7 @@ int main()
     ShieldBearerFactory* shieldFactory = new ShieldBearerFactory();
     BoatmanFactory* boatFactory = new BoatmanFactory();
 
-    Soldiers* infSoldier = infantryFactory->createUnit();
+    Soldiers* RomeInfantry = infantryFactory->createUnit();
     Soldiers* infSoldier1 = infantryFactory->createUnit();
     Soldiers* shieldSoldier = shieldFactory->createUnit();
     Soldiers* shieldSoldier1 = shieldFactory->createUnit();
@@ -32,10 +32,9 @@ int main()
     CareTaker* boatCaretaker= new CareTaker();
     CareTaker* boat1Caretaker= new CareTaker();
     int counter = 0, counter2 = 0;
-
     while(true)
     {
-        infCaretaker->addMemento( infSoldier->militusMemento());
+        infCaretaker->addMemento( RomeInfantry->militusMemento());
         inf1Caretaker->addMemento( infSoldier1->militusMemento());
         boatCaretaker->addMemento( boatSoldier->militusMemento());
         boat1Caretaker->addMemento( boatSoldier1->militusMemento());
@@ -44,16 +43,15 @@ int main()
 
         boatSoldier->engage(boatSoldier1);
         shieldSoldier->engage(shieldSoldier1);
-        infSoldier->engage(infSoldier1);
-
+        RomeInfantry->engage(infSoldier1);
         if(boatSoldier1->lose() || infSoldier1->lose() || shieldSoldier1->lose()){
             counter2++;
         }
 
-        infSoldier1->engage(infSoldier);
+        infSoldier1->engage(RomeInfantry);
         boatSoldier1->engage(boatSoldier);
         shieldSoldier1->engage(shieldSoldier);
-        if(boatSoldier->lose() || infSoldier->lose() || shieldSoldier->lose()){
+        if(boatSoldier->lose() || RomeInfantry->lose() || shieldSoldier->lose()){
             counter++;
         }
 
@@ -69,7 +67,7 @@ int main()
         }
 
 
-        infSoldier->vivificaMemento(infCaretaker->getMemento());
+        RomeInfantry->vivificaMemento(infCaretaker->getMemento());
         infSoldier1->vivificaMemento(inf1Caretaker->getMemento());
         boatSoldier->vivificaMemento(boatCaretaker->getMemento());
         boatSoldier1->vivificaMemento(boat1Caretaker->getMemento());
@@ -77,5 +75,8 @@ int main()
         shieldSoldier1->vivificaMemento(shield1Caretaker->getMemento());
     }
 
+    // sf->y
+
+    /* code */
     return 0;
 }
