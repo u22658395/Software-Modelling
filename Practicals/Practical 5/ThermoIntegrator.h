@@ -1,9 +1,9 @@
 #ifndef THERMOIntegrator_H
 #define THERMOIntegrator_H
-#include "Integrator.h"
+#include "Device.h"
 #include "OldThermostat.h"
 
-class ThermoIntegrator: public Integrator//inherit from smart devices
+class ThermoIntegrator: public Device//inherit from smart devices
 {
 protected:
     OldThermostat* thermo;
@@ -11,7 +11,7 @@ public:
     ThermoIntegrator(OldThermostat* t);
     ~ThermoIntegrator();
     void performAction();/////fix this later
-    int getStatus();
+    string getStatus();
     std:: string getDeviceType();
 };  
 #endif

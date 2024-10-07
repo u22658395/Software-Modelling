@@ -3,6 +3,8 @@
 ThermoIntegrator:: ThermoIntegrator(OldThermostat* t)
 {
     thermo=t;
+    type= "Thermostat";
+    
 }
 ThermoIntegrator:: ~ThermoIntegrator()
 {

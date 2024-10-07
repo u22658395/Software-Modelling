@@ -9,11 +9,11 @@ MotionSensor:: ~MotionSensor()
 {
     
 }
-void MotionSensor:: addDevice(Observer* device)
+void MotionSensor:: addDevice(Device* device)
 {
     devices.push_back(device);
 }
-void MotionSensor:: removeDevice(Observer* device)
+void MotionSensor:: removeDevice(Device* device)
 {
     for (auto i = devices.begin(); i != devices.end(); ++i)
     {
@@ -25,8 +25,9 @@ void MotionSensor:: removeDevice(Observer* device)
     }
 }
 
-void MotionSensor:: notifyDevices(Observer* device)
+void MotionSensor:: notifyDevices(string event)
 {
+       std::cout << "Motion detected: " << event << "\nNotifying devices...\n";
         for (const auto& device : devices) {
             device->update();
         }

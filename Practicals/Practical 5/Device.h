@@ -18,5 +18,7 @@ class Device
         virtual string getDeviceType()=0;
         virtual void turnOn()=0;
         virtual void turnOff()=0;
+        virtual void update()= 0;
+         virtual void performAction(Command* command) = 0;
 };
 #endif

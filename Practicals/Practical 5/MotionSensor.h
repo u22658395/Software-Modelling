@@ -8,9 +8,9 @@ private:
 public:
     MotionSensor(/* args */);
     ~MotionSensor();
-    void addDevice(Observer* device);
-    void removeDevice(Observer* device);
-    void notifyDevices(Observer* device);
+    void addDevice(Device* device);
+    void removeDevice(Device* device);
+    void notifyDevices(string event);
     void detectMotion();
 };
 #endif
