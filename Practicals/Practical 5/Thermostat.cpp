@@ -29,6 +29,23 @@ string Thermostat::getDeviceType(){
     return type;
 }
 
+void Thermostat::update()
+{
+    setTemp(0);
+}
+
+void Thermostat::setTemp(float t)
+{
+    temp=t;
+}
+void Thermostat::increase()
+{
+    temp++;
+}
+void Thermostat::decrease()
+{
+    temp--;
+}
 void Thermostat::performAction(bool state)
 {
     on = state;

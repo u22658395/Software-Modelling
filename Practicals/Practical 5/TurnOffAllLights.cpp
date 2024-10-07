@@ -1,5 +1,11 @@
 #include "TurnOffAllLights.h"
 
+<<<<<<< HEAD
+void TurnOffAllLights:: execute()
+{
+    
+}
+=======
 
 TurnOffAllLights::TurnOffAllLights(vector<Light> lights){
     this->lights = lights;
@@ -16,3 +22,4 @@ void TurnOffAllLights::execute(){
     }
 }
 
+>>>>>>> 1d39d63f06f3645c5f63ab951d4a8d4a6d13777f

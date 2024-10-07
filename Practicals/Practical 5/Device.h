@@ -14,6 +14,10 @@ class Device
         virtual ~Device();
         virtual string getStatus()=0;
         virtual void toggleState()=0;
+        virtual string getDeviceType()=0;
+        virtual void turnOn()=0;
+        virtual void turnOff()=0;
+        virtual void update()= 0;
         string getDeviceType();
         virtual void performAction(bool state)=0;
 };

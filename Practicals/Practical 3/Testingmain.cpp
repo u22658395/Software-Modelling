@@ -18,6 +18,10 @@ int main() {
     WoodlandFactory woodlandFactory(1000);
     OpenFieldFactory openfieldfactory(1000);
     RiverbankFactory riverbankFactory(2000);
+<<<<<<< HEAD
+    int round=1;
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         
     riverbankFactory.getBudget();
     openfieldfactory.getBudget();
@@ -37,17 +41,29 @@ int main() {
     battle->addUnit(cavalry1);
     battle->addUnit(artillery1);
     woodlandFactory.deployArtillery();
+<<<<<<< HEAD
+    openfieldfactory.deployInfantry();
+    riverbankFactory.deployCavalry();
+    // battle->addUnit(new Infantry());
+    // battle->addUnit(new Cavalry);
+    // battle->addUnit(new Artillery);
+=======
     openfieldfactory.deployArtillery();
     riverbankFactory.deployArtillery();
     battle->addUnit(new Infantry());
     battle->addUnit(new Cavalry);
     battle->addUnit(new Artillery);
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     // Set initial tactic
     BattleStrategy* ambush = new Ambush();
     BattleStrategy*clone= ambush->clone();
     delete clone;
     battle->applyStrategy(cavalry1);
+<<<<<<< HEAD
+    // ambush->engage(artillery1);
+=======
     ambush->engage(artillery1);
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
 
     // Start battle
@@ -55,20 +71,36 @@ int main() {
 
     // Engage units
     battle->applyStrategy(infantry1);
+<<<<<<< HEAD
+        infantry1->move();
+        artillery1->move();
+    while(infantry1->isAlive()&&artillery1->isAlive())
+    {
+
+=======
     while(infantry1->isAlive()&&artillery1->isAlive())
     {
         infantry1->move();
         artillery1->move();
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         ambush->engage(infantry1);
         ambush->engage(artillery1);
         artillery1->attack();
         infantry1->attack();
         void displayBattleInfo();
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     if(infantry1->isAlive())
     {
         std::cout<<"Infantry wins!!!!"<<std::endl;
         battle->removeUnit(artillery1);
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     }
     else if(artillery1->isAlive())
     {
@@ -78,6 +110,11 @@ int main() {
     else
     {
         std::cout<<"Nobody wins.Everybody is dead!!!"<<std::endl;
+<<<<<<< HEAD
+        battle->removeUnit(artillery1);
+        battle->removeUnit(infantry1);
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     }
     // Save tactic
     battle->saveTactic("Ambush");
@@ -88,6 +125,9 @@ int main() {
     battle->applyStrategy(infantry1);
     battle->displaySavedTactics();
     battle->endBattle();
+<<<<<<< HEAD
+    round++;
+=======
     // Clean up
     std::cout << R"(
     .../\
@@ -110,6 +150,7 @@ int main() {
     )" << std::endl;
 
 
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 std:: cout<< "-------------------ROUND 2---------------------"<<std::endl;
     LegionUnit* infantry = openfieldfactory.createInfantry();
     LegionUnit* cavalry = openfieldfactory.createCavalry();
@@ -125,7 +166,11 @@ std:: cout<< "-------------------ROUND 2---------------------"<<std::endl;
 BattleStrategy* strat= ambush->clone();
 delete strat;
 strat=new Flanking();
+<<<<<<< HEAD
+// strat->engage(cavalry);
+=======
 strat->engage(cavalry);
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
     battle2->applyStrategy(artillery);
 
@@ -134,6 +179,18 @@ strat->engage(cavalry);
     battle2->startBattle();
 
     // Engage units
+<<<<<<< HEAD
+        battle2->applyStrategy(cavalry);
+        battle2->applyStrategy(infantry);
+        infantry->move();
+        cavalry->move();
+    while(infantry->isAlive()&&cavalry->isAlive())
+    {
+
+        strat->engage(infantry);
+        strat->engage(artillery);
+        cavalry->attack();
+=======
     battle2->applyStrategy(cavalry);
         battle2->applyStrategy(infantry);
     while(infantry->isAlive()&&artillery->isAlive())
@@ -143,6 +200,7 @@ strat->engage(cavalry);
         ambush->engage(infantry);
         ambush->engage(artillery);
         artillery->attack();
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         infantry->attack();
         battle->displayBattleInfo();
     }
@@ -150,7 +208,11 @@ strat->engage(cavalry);
     {
         std::cout<<"Infantry wins!!!!"<<std::endl;
     }
+<<<<<<< HEAD
+    else if(cavalry->isAlive())
+=======
     else if(artillery->isAlive())
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     {
          std::cout<<"Artillery wins!!!!"<<std::endl;
     }
@@ -166,6 +228,9 @@ strat->engage(cavalry);
     battle2->updateBattle();
     battle2->displaySavedTactics();
     battle2->endBattle();
+<<<<<<< HEAD
+    
+=======
     // Clean up
     std::cout << R"(
     .../\
@@ -186,6 +251,7 @@ strat->engage(cavalry);
        ||
       /__\
     )" << std::endl;
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
     delete infantry1;
     delete cavalry1;
@@ -195,8 +261,13 @@ strat->engage(cavalry);
     delete artillery;
     delete ambush;
     delete strat;
+<<<<<<< HEAD
+    round++;
+
+=======
 
 
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     std:: cout<< "-------------------ROUND 3---------------------"<<std::endl;
 
     LegionUnit* infantry3 = riverbankFactory.createInfantry();
@@ -211,12 +282,21 @@ strat->engage(cavalry);
     battle3->addUnit(cavalry3);
     battle3->addUnit(artillery3);
 
+<<<<<<< HEAD
+ //strat= ambush->clone();
+ 
+// delete strat;
+
+strat=new Fortification();
+// // strat->engage(infantry3);
+=======
 //  strat= ambush->clone();
 //  
 // delete strat;
 
 strat=new Fortification();
 strat->engage(infantry3);
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
     battle3->applyStrategy(artillery3);
 
@@ -225,6 +305,19 @@ strat->engage(infantry3);
     battle3->startBattle();
 
     // Engage units
+<<<<<<< HEAD
+        battle3->applyStrategy(cavalry3);
+        battle3->applyStrategy(infantry3);
+        infantry3->move();
+        cavalry3->move();
+        
+    while(infantry3->isAlive()&&cavalry3->isAlive())
+    {
+        strat->engage(infantry3);
+        strat->engage(cavalry3);
+        std::cout<<"heeeeeeeeeeeeeeeeeee"<<std:: endl;
+        cavalry3->attack();
+=======
     battle3->applyStrategy(cavalry3);
         battle3->applyStrategy(infantry3);
     while(infantry3->isAlive()&&cavalry3->isAlive())
@@ -234,6 +327,7 @@ strat->engage(infantry3);
         ambush->engage(infantry3);
         ambush->engage(artillery3);
         artillery3->attack();
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         infantry3->attack();
         battle->displayBattleInfo();
     }
@@ -257,6 +351,9 @@ strat->engage(infantry3);
     battle3->updateBattle();
     battle3->displaySavedTactics();
     battle3->endBattle();
+<<<<<<< HEAD
+    
+=======
     // Clean up
     std::cout << R"(
     .../\
@@ -277,6 +374,7 @@ strat->engage(infantry3);
        ||
       /__\
     )" << std::endl;
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
     delete infantry3;
     delete cavalry3;

@@ -5,19 +5,19 @@
 
 class CavalryWoodland : public Cavalry {
 public:
-    CavalryWoodland() {
-        // Custom attributes for Woodland Cavalry
-        attackPower = 75;
-        defensePower = 60;
-    }
+    // CavalryWoodland() {
+    //     // Custom attributes for Woodland Cavalry
+    //     attackPower = 75;
+    //     defensePower = 60;
+    // }
 
-    void move() {
-        std::cout << "CavalryWoodland moving swiftly through the woods.\n";
-    }
+    // void move() {
+    //     std::cout << "CavalryWoodland moving swiftly through the woods.\n";
+    // }
 
-    void attack() {
-        std::cout << "CavalryWoodland launching a surprise attack from the trees.\n";
-    }
+    // void attack() {
+    //     std::cout << "CavalryWoodland launching a surprise attack from the trees.\n";
+    // }
     ~CavalryWoodland() noexcept override = default;
 };
 

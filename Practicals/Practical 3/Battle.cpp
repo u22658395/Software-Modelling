@@ -59,6 +59,7 @@ void Battle::updateBattle() {
         std::cout << "No tactic set. Cannot continue battle." << std::endl;
         return;
     }
+    
 
     std::cout << "Applying current tactic..." << std::endl;
     tactic_->executeStrategy(units_[0]); // Apply tactic to the first unit as an example
@@ -74,12 +75,25 @@ void Battle::applyStrategy(LegionUnit* unit) {
 }
 
 void Battle::displayBattleInfo() {
+     std::cout << "//////////////////////////////////////////////" << std::endl;
     std::cout << "Current battle status:" << std::endl;
     
+<<<<<<< HEAD
+    for (auto it = units_.begin(); it != units_.end(); ++it) {
+        LegionUnit* unit = *it;  // Dereference the iterator to get the unit pointer
+        std::cout << "Unit: " << unit->getName() << std::endl;
+        std::cout << "Health: " << unit->getHealth() << std::endl;
+        std::cout << "Alive: " << (unit->isAlive() ? "Yes" : "No") << std::endl;
+    }
+
+    std::cout << "//////////////////////////////////////////////" << std::endl;
+=======
     for (LegionUnit* unit : units_) {
         unit->getName();
         unit->getHealth();
         unit->isAlive();
     }
     std:: cout<<"/////";
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 }
+

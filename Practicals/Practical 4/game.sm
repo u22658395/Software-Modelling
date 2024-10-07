@@ -1,0 +1,41 @@
+statechart GameStateMachine {
+    
+    // Define states
+    state Setup {
+        entry / setup();
+        transition to BreadthFirstTraversal;
+    }
+
+    state BreadthFirstTraversal {
+        entry / performBreadthFirstTraversal();
+        transition to DepthFirstTraversal;
+    }
+
+    state DepthFirstTraversal {
+        entry / performDepthFirstTraversal();
+        transition to Logistics;
+    }
+
+    state Logistics {
+        entry / performLogisticsOperations();
+        transition to Fertilizing;
+    }
+
+    state Fertilizing {
+        entry / applyFertilizer();
+        transition to Harvesting;
+    }
+
+    state Harvesting {
+        entry / harvestCrops();
+        transition to Finished;
+    }
+
+    state Finished {
+        entry / finishGame();
+    }
+
+    // Define initial and final states
+    initial Setup;
+    final Finished;
+}

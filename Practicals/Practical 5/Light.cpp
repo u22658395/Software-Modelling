@@ -30,6 +30,11 @@ string Light::getDeviceType(){
     return type;
 }
 
+void Light::update()
+{
+    turnOn();
+}
+
 void Light::performAction(bool state){
     on = state;
 }

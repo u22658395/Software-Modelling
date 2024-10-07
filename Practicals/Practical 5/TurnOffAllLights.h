@@ -1,6 +1,22 @@
 #ifndef TURNOFFALLLIGHTS_H
 #define TURNOFFALLLIGHTS_H
 #include "Command.h"
+<<<<<<< HEAD
+
+class TurnOffAllLights: public Command
+{
+private:
+    /* data */
+public:
+    TurnOffAllLights(/* args */);
+    ~TurnOffAllLights();
+    void execute();
+};
+
+
+
+#endif
+=======
 #include "Light.h"
 #include "vector"
 
@@ -14,3 +30,4 @@ class TurnOffAllLights : public Command
         virtual void execute();
 };
 #endif
+>>>>>>> 1d39d63f06f3645c5f63ab951d4a8d4a6d13777f

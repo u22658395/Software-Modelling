@@ -14,6 +14,9 @@ class Light : public Device
         virtual string getStatus();
         virtual void toggleState();
         virtual string getDeviceType();
+        virtual void turnOn();
+        virtual void turnOff();
+        void update();
         virtual void performAction(bool state);
 };
 #endif

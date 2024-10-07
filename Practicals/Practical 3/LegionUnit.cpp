@@ -1,8 +1,12 @@
 #include "LegionUnit.h"
 #include "TacticalCommand.h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 
 
-bool LegionUnit::isAlive() const {
+bool LegionUnit::isAlive() {
     return health > 0;
 }
 

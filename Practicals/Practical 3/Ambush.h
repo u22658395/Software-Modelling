@@ -13,6 +13,7 @@ class Ambush : public BattleStrategy {
    void engage(LegionUnit* unit)override{
         std::cout << "Setting up an ambush with " << unit->getName()<< std::endl;
         unit->takeDamage(std::rand() % 101);
+              
         
     }
     BattleStrategy* clone() const override {

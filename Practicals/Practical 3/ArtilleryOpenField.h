@@ -5,19 +5,25 @@
 
 class ArtilleryOpenField : public Artillery {
 public:
-    ArtilleryOpenField() {
-        // Custom attributes for Riverbank Artillery
-        attackPower = 90;
-        defensePower = 50;
-    }
+    // ArtilleryOpenField() {
+    //     // Custom attributes for Riverbank Artillery
+    //     attackPower = 90;
+    //     defensePower = 50;
+    // }
 
-    void move() {
-        std::cout << "ArtilleryRiverbank rolling along the river's edge with caution.\n";
-    }
+//     void move() {
+//         std::cout << "ArtilleryRiverbank rolling along the river's edge with caution.\n";
+//     }
 
-    void attack() {
-        std::cout << "ArtilleryRiverbank launching heavy bombardment from the riverbank.\n";
-    }
+//     void attack() {
+//     std::cout << " Artillery attacks" << std::endl;
+//       std::cout << R"(
+//     ░░░░░░███████ ]▄▄▄▄▄▄▄▄
+//  ▂▄▅█████████▅▄▃▂        
+// [███████████████████]. 
+// ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤.. 
+//     )" << std::endl;
+// }
     ~ArtilleryOpenField() noexcept override = default;
 
 };

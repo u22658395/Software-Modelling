@@ -4,8 +4,8 @@
 
 class Thermostat : public Device
 {
-    private:
-        /* data */
+    protected:
+        float temp;
         bool on;
     public:
         Thermostat();
@@ -14,6 +14,15 @@ class Thermostat : public Device
         virtual string getStatus();
         virtual void toggleState();
         virtual string getDeviceType();
+        virtual void turnOn();
+        virtual void turnOff();
+        void update();
+        void setTemp(float t);
+        void increase();
+        void decrease();
+
+
+
         virtual void performAction(bool state);
 };
 #endif
