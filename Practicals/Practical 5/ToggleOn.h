@@ -7,9 +7,7 @@ class ToggleOn :public Command
     private:
         Device* device; //this is the receiver
     public:
-        ToggleOn();
         ToggleOn(Device* d);
-        virtual ~ToggleOn();
         virtual void execute();
 };
 #endif
