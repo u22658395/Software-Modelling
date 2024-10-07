@@ -35,3 +35,9 @@ void Light::toggleState(){
 string Light::getDeviceType(){
     return type;
 }
+
+void Light::update()
+{
+    turnOn();
+}
+

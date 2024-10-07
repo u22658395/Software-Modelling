@@ -19,5 +19,6 @@ class Lock : public Device
         void lock();
         void unlock();
         void toggleLock();
+        void update();
 };
 #endif

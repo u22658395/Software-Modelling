@@ -50,3 +50,8 @@ void Lock::toggleLock()
 string Lock::getDeviceType(){
     return type;
 }
+
+void Lock::update()
+{
+    unlock();
+}

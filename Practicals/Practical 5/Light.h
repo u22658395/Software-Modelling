@@ -15,5 +15,6 @@ class Light : public Device
         virtual string getDeviceType();
         virtual void turnOn();
         virtual void turnOff();
+        void update();
 };
 #endif

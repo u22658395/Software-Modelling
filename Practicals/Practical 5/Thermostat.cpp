@@ -35,3 +35,21 @@ void Thermostat::toggleState(){
 string Thermostat::getDeviceType(){
     return type;
 }
+
+void Thermostat::update()
+{
+    turnOn();
+}
+
+void Thermostat::setTemp(float t)
+{
+    temp=t;
+}
+void Thermostat::increase()
+{
+    temp++;
+}
+void Thermostat::decrease()
+{
+    temp--;
+}
