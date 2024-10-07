@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-#ifndef MACROROUTINE_H
-#define MACROROUTINE_H
-#include <vector>
-#include "Command.h"
-
-class MacroRoutine
-{
-protected:
-     vector<Command*> commands;
-public:
-    MacroRoutine(/* args */);
-    ~MacroRoutine();
-    void addProcedure(Command* cmd);
-    void removeProcedure(Command*  cmd);
-    void execute();
-};
-
-
-#endif
-=======
 #include "Command.h"
 #include "map"
 class MacroRoutine
@@ -35,4 +14,3 @@ class MacroRoutine
 };
 
 
->>>>>>> 1d39d63f06f3645c5f63ab951d4a8d4a6d13777f

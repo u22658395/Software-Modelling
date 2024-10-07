@@ -1,14 +1,7 @@
 #include "MotionSensor.h"
 #include <iostream>
 
-MotionSensor:: MotionSensor(/* args */)
-{
 
-}
-MotionSensor:: ~MotionSensor()
-{
-    
-}
 void MotionSensor:: addDevice(Device* device)
 {
     devices.push_back(device);
