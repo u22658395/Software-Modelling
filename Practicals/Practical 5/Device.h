@@ -9,7 +9,7 @@ class Device
     protected:
         string type;
     public:
-        Device();
+        // Device();
         Device(string deviceType);
         virtual ~Device();
         virtual string getStatus()=0;

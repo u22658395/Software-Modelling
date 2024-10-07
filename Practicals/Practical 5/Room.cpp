@@ -1,8 +1,9 @@
 #include "Room.h"
 
-Room::Room(/* args */){
+Room::Room(string type):Device(type){
     lightCommand = NULL;
     thermostatCommand = NULL;
+    on = false;
 }
 
 Room::~Room(){
@@ -33,13 +34,25 @@ void Room::executeLightCommand()
 }
 
 string Room::getStatus(){
-    
+    string statusStr= getDeviceType()+" - ";
+
+    for(Device* device: devices)
+    {
+        
+        statusStr += device->getStatus() +"\n";
+    }
+
+    return statusStr;
 }
 
 void Room::toggleState(){
-
+    on = !on;
 }
 
 void Room::performAction(bool state){
     on = state;
+}
+
+void Room::addDevice(Device *d){
+    devices.push_back(d);
 }

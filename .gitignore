@@ -4,19 +4,11 @@ main
 Practicals/Practical 1/.vscode/settings.json
 *.zip
 *.pdf
-<<<<<<< HEAD
-Practicals/Practical 5/.vscode/c_cpp_properties.json
-Practicals/Practical 5/.vscode/launch.json
-Practicals/Practical 5/.vscode/settings.json
-<<<<<<< HEAD
-.gitignore
-=======
-*.vpp*
-*.vux
->>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
+
 =======
 =======
 *.vpp*
 *.vux
->>>>>>> 855eb2c55c33101043ee12118988695f4116d533
->>>>>>> 1d39d63f06f3645c5f63ab951d4a8d4a6d13777f
+
+=======
+Practicals/Practical 5/.vscode/settings.json=
