@@ -15,10 +15,7 @@ public:
     virtual string getStatus();
     virtual void toggleState();
     virtual string getDeviceType();
-    virtual void turnOn();
-    virtual void turnOff();
-    void lock();
-    void unlock();
     void toggleLock();
+    virtual void performAction(bool state);
 };
 #endif

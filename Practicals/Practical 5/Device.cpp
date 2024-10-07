@@ -2,13 +2,12 @@
 
 Device::Device(){
     type="";
-    on = false;
 }
 
 Device::~Device(){
 }
 
-Device::Device(string t, bool state){
+Device::Device(string t){
     type = t;
 }
 
