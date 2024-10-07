@@ -1,4 +1,4 @@
-#include "Lock.h"
+#include "DoorLock.h"
 
 DoorLock::DoorLock() : Device("Lock", false)
 {
