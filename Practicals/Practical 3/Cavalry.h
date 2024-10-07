@@ -18,6 +18,7 @@ void move() {
 
 void attack() {
     std::cout  << " Cavalry attacks" << std::endl;
+<<<<<<< HEAD
       std::cout << R"(
 /﹋\__
 (`_´)
@@ -26,15 +27,23 @@ _/﹋\_
     )"
     
 << std::endl;
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 }
 
     ~Cavalry()
     {
         for (auto unit : units) {
         if(unit!=NULL)
+<<<<<<< HEAD
         {
             delete unit;
         }
+=======
+            {
+                delete unit;
+            }
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     }
     }
     void add(LegionUnit* component) {

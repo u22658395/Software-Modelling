@@ -24,6 +24,7 @@ public:
     void deployArtillery() {
         if (budget >= 500) {  // Assume the cost of deploying artillery is 500
             LegionUnit* artillery = createArtillery();
+<<<<<<< HEAD
             // std::cout << "Deploying  Artillery\n";
             //artillery->move();
             //artillery->attack();
@@ -34,10 +35,16 @@ public:
 ███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
 ▀(⊙)▀▀▀▀▀▀▀(⊙)(⊙)▀▀▀▀▀▀▀▀▀▀(⊙ 
     )" << std::endl;
+=======
+            std::cout << "Deploying  Artillery\n";
+            artillery->move();
+            artillery->attack();
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
             spendBudget(500);
             delete artillery;
         } else {
             std::cout << "Insufficient budget to deploy Artillery\n";
+<<<<<<< HEAD
         }
     }
 void deployInfantry() {
@@ -76,6 +83,8 @@ void deployCavalry() {
             delete artillery;
         } else {
             std::cout << "Insufficient budget to deploy Cavalry\n";
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         }
     }
 

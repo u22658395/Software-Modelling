@@ -19,12 +19,15 @@ public:
 
     void attack() {
         std::cout << "Infantry attacks" << std::endl;
+<<<<<<< HEAD
           std::cout << R"(
 _/﹋\_
 (҂`_´)
 <,︻╦╤─ ҉ - -
 _/﹋\_
     )" << std::endl;
+=======
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
     }
 
     ~Infantry() {

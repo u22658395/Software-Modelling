@@ -78,6 +78,7 @@ void Battle::displayBattleInfo() {
      std::cout << "//////////////////////////////////////////////" << std::endl;
     std::cout << "Current battle status:" << std::endl;
     
+<<<<<<< HEAD
     for (auto it = units_.begin(); it != units_.end(); ++it) {
         LegionUnit* unit = *it;  // Dereference the iterator to get the unit pointer
         std::cout << "Unit: " << unit->getName() << std::endl;
@@ -86,5 +87,13 @@ void Battle::displayBattleInfo() {
     }
 
     std::cout << "//////////////////////////////////////////////" << std::endl;
+=======
+    for (LegionUnit* unit : units_) {
+        unit->getName();
+        unit->getHealth();
+        unit->isAlive();
+    }
+    std:: cout<<"/////";
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
 }
 

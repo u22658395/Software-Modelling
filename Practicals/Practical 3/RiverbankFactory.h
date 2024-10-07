@@ -10,6 +10,7 @@ public:
     RiverbankFactory(int initialBudget) : LegionFactory(initialBudget) {}
 
 
+<<<<<<< HEAD
     Infantry* createInfantry() {
         return new InfantryRiverbank();
     }
@@ -18,6 +19,16 @@ public:
         return new CavalryOpenField();
     }
     Artillery* createArtillery() {
+=======
+    LegionUnit* createInfantry() {
+        return new InfantryRiverbank();
+    }
+    LegionUnit* createCavalry() {
+        // return new CavalryRiverbank();
+        return new CavalryOpenField();
+    }
+    LegionUnit* createArtillery() {
+>>>>>>> 1f83a37640941d04290f15c8300276f8c2792c71
         // return new ArtilleryRiverbank();
          return new ArtilleryOpenField();
         
