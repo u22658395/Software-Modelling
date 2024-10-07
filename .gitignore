@@ -4,3 +4,6 @@ main
 Practicals/Practical 1/.vscode/settings.json
 *.zip
 *.pdf
+Practicals/Practical 5/.vscode/c_cpp_properties.json
+Practicals/Practical 5/.vscode/launch.json
+Practicals/Practical 5/.vscode/settings.json
