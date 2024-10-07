@@ -1,7 +1,7 @@
 #include "Command.h"
 
 Command::Command(){
-    this->device = NULL;
+    
 }
 
 Command::Command(Device* d){

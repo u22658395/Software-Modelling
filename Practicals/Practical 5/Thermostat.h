@@ -4,7 +4,7 @@
 
 class Thermostat : public Device
 {
-    private:
+    protected:
         float temp;
     public:
         Thermostat();

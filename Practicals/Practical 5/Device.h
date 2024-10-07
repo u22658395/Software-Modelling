@@ -3,6 +3,7 @@
 #include "Command.h"
 #include <iostream>
 using namespace std;
+
 class Device
 {
     protected:

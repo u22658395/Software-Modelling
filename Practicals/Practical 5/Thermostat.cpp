@@ -38,7 +38,7 @@ string Thermostat::getDeviceType(){
 
 void Thermostat::update()
 {
-    turnOn();
+    setTemp(0);
 }
 
 void Thermostat::setTemp(float t)
