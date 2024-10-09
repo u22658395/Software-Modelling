@@ -10,12 +10,14 @@ private:
 
 public:
     DoorLock();
-    DoorLock(bool state);
+    DoorLock(string name);
+    DoorLock(bool state, string name);
     virtual ~DoorLock();
     virtual string getStatus();
     virtual void toggleState();
     virtual string getDeviceType();
     void toggleLock();
     virtual void performAction(bool state);
+    void update();
 };
 #endif

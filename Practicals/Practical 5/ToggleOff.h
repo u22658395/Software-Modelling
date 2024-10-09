@@ -9,5 +9,7 @@ class ToggleOff :public Command
     public:
         ToggleOff(Device* d);
         virtual void execute();
+        ~ToggleOff(){}
+        
 };
 #endif

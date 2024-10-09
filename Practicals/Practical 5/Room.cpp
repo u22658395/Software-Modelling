@@ -1,14 +1,40 @@
 #include "Room.h"
 
-Room::Room(string type):Device(type){
+
+Room::Room()
+{
     lightCommand = NULL;
     thermostatCommand = NULL;
     on = false;
+    type = "Room";
+    this->name = "";
 }
 
-Room::~Room(){
-    delete this->lightCommand;
-    delete this->thermostatCommand;
+Room::Room(string name)
+{
+    lightCommand = NULL;
+    thermostatCommand = NULL;
+    on = false;
+    type = "Room";
+    this->name = name;
+}
+
+Room::~Room()
+{
+    if (lightCommand!=NULL)
+    {
+        // delete this->lightCommand;
+        lightCommand = NULL;
+    }
+    
+    if(thermostatCommand!=NULL)
+    {
+        // delete this->thermostatCommand;
+        thermostatCommand = NULL;
+    }
+    
+    for (Device* device:devices)
+    devices.clear();
 }
 
 void Room::setLightCommand(Command *command)
@@ -23,36 +49,71 @@ void Room::setThermostatCommand(Command *command)
 
 void Room::executeThermostatCommand()
 {
-    if(thermostatCommand != NULL)
+    if (thermostatCommand != NULL)
         thermostatCommand->execute();
 }
 
 void Room::executeLightCommand()
 {
-    if(lightCommand != NULL)
+    if (lightCommand != NULL)
         lightCommand->execute();
 }
 
-string Room::getStatus(){
-    string statusStr= getDeviceType()+" - ";
+string Room::getStatus()
+{
+    string statusStr = name + " - ";
 
-    for(Device* device: devices)
+    for (Device *device : devices)
     {
-        
-        statusStr += device->getStatus() +"\n";
+
+        statusStr += device->getStatus() + "\n";
     }
 
     return statusStr;
 }
 
-void Room::toggleState(){
+void Room::toggleState()
+{
     on = !on;
 }
 
-void Room::performAction(bool state){
+void Room::performAction(bool state)
+{
     on = state;
 }
 
-void Room::addDevice(Device *d){
-    devices.push_back(d);
+void Room::addDevice(Device *d)
+{
+    if (d!= NULL)
+        devices.push_back(d);
+}
+
+void Room::update()
+{
+    for (Device *device : devices)
+    {
+
+        device->update();
+    }
+}
+
+vector<Device*> Room::getAllDoorLocks()
+{
+    vector<Device*> doors;
+    for (Device* device:devices)
+    {
+        if(device != NULL){
+            if(device->getDeviceType() =="DoorLock"){
+                doors.push_back(device);
+            }
+            else{
+                if(device->getDeviceType() == "Room"){
+                    vector<Device*> roomVect = ((Room *)device)->getAllDoorLocks();
+                    doors.insert(doors.end(), roomVect.begin(), roomVect.end());
+                }
+            }
+        }
+    }
+
+    return doors;
 }

@@ -1,8 +1,7 @@
 #ifndef OLDTHERMOSTAT_H
 #define OLDTHERMOSTAT_H
-#include "OldDevice.h"
 
-class OldThermostat : public OldDevice
+class OldThermostat
 {
 protected:
     int temp;

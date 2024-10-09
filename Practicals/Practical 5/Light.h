@@ -9,13 +9,12 @@ class Light : public Device
         bool on;
     public:
         Light();
-        Light(bool state);
+        Light(string name);
+        Light(bool state, string name);
         virtual ~Light();
         virtual string getStatus();
         virtual void toggleState();
         virtual string getDeviceType();
-        virtual void turnOn();
-        virtual void turnOff();
         void update();
         virtual void performAction(bool state);
 };

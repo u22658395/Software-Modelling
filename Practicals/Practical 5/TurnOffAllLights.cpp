@@ -1,25 +1,32 @@
 #include "TurnOffAllLights.h"
 
-<<<<<<< HEAD
-void TurnOffAllLights:: execute()
-{
+
+TurnOffAllLights::TurnOffAllLights(){
     
 }
-=======
 
-TurnOffAllLights::TurnOffAllLights(vector<Light> lights){
+TurnOffAllLights::TurnOffAllLights(vector<Device *> lights)
+{
     this->lights = lights;
 }
 
-void TurnOffAllLights::addLight(Light l)
+void TurnOffAllLights::addLight(Light* l)
 {
     lights.push_back(l);
 }
 
 void TurnOffAllLights::execute(){
-    for (vector<Light>::iterator it = lights.begin(); it != lights.end(); ++it){
-        it->performAction(false);
+    for (Device *light : lights)
+    {
+        if (light != NULL)
+        {
+            light->performAction(false);
+        }
     }
 }
 
->>>>>>> 1d39d63f06f3645c5f63ab951d4a8d4a6d13777f
+TurnOffAllLights::~TurnOffAllLights()
+{
+
+    lights.clear();
+}

@@ -11,8 +11,8 @@ public:
     ThermoIntegrator(OldThermostat* t);
     ~ThermoIntegrator();
     void update();
-    string getStatus();
-    std:: string getDeviceType();
+    // string getStatus();
+    // std:: string getDeviceType();
     void setTemp(float t);
 
     void increase();

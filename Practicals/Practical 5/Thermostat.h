@@ -9,20 +9,19 @@ class Thermostat : public Device
         bool on;
     public:
         Thermostat();
-        Thermostat(bool state);
+        Thermostat(string name);
+        Thermostat(bool state, string name);
         virtual ~Thermostat();
         virtual string getStatus();
         virtual void toggleState();
         virtual string getDeviceType();
-        virtual void turnOn();
-        virtual void turnOff();
         void update();
         void setTemp(float t);
         void increase();
         void decrease();
-
-
+        // virtual string getStatus();
 
         virtual void performAction(bool state);
+        float getTemp(){return temp;}
 };
 #endif

@@ -4,6 +4,7 @@ OldThermostat:: OldThermostat(/* args */)
 {
     temp= 20;
 }
+
 OldThermostat:: ~OldThermostat()
 {
 

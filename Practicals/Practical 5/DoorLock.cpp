@@ -1,13 +1,24 @@
 #include "DoorLock.h"
 
-DoorLock::DoorLock() : Device("Lock")
+DoorLock::DoorLock()
 {
     locked = false;
+    type= "Lock";
+    name="";
 }
 
-DoorLock::DoorLock(bool state) : Device("Lock")
+DoorLock::DoorLock(string name)
+{
+    locked = false;
+    type="Lock";
+    this->name=name;
+}
+
+DoorLock::DoorLock(bool state, string name)
 {
     locked = state;
+    type = "Lock";
+    this->name = name;
 }
 
 DoorLock::~DoorLock()
@@ -32,6 +43,14 @@ void DoorLock::toggleState()
 
 void DoorLock::performAction(bool state){
     locked = state;
+    if(locked=true)
+    {
+        std::cout <<"\n LOCKING DOORS🚪🚪🚪\n";
+    }
+    else
+    {
+        std::cout <<"\nUNLOCKING DOORS\n";
+    }
 }
 
 void DoorLock::toggleLock()
@@ -42,4 +61,9 @@ void DoorLock::toggleLock()
 string DoorLock::getDeviceType()
 {
     return type;
+}
+
+void DoorLock::update()
+{
+    performAction(false);
 }

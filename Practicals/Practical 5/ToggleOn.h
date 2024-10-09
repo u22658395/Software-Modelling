@@ -9,5 +9,6 @@ class ToggleOn :public Command
     public:
         ToggleOn(Device* d);
         virtual void execute();
+        ~ToggleOn() {}
 };
 #endif

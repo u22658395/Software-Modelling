@@ -1,19 +1,33 @@
 #include "UnlockAllDoors.h"
 
-UnlockAllDoors::UnlockAllDoors(vector<DoorLock> locks)
+UnlockAllDoors::UnlockAllDoors()
+{
+}
+
+UnlockAllDoors::UnlockAllDoors(vector<Device *> locks)
 {
     this->locks = locks;
 }
 
-void UnlockAllDoors::addLock(DoorLock l)
+void UnlockAllDoors::addLock(DoorLock *l)
 {
     locks.push_back(l);
 }
 
 void UnlockAllDoors::execute()
 {
-    for (vector<DoorLock>::iterator it = locks.begin(); it != locks.end(); ++it)
+    for (Device *lock : locks)
     {
-        it->performAction(false);
+        if(lock != NULL){
+            lock->performAction(false);
+        }
     }
+}
+UnlockAllDoors::~UnlockAllDoors()
+{
+    // for (Device *lock : locks)
+    // {
+    //     delete lock;
+    // }
+    locks.clear();
 }

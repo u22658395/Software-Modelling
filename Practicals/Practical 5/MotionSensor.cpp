@@ -27,6 +27,11 @@ void MotionSensor:: notifyDevices(string event)
 }
 void MotionSensor:: detectMotion()
 {
-    std::cout << "Motion detected!\n";
+    std::cout << "\nMotion detected!🏃\n";
         notifyDevices("MotionDetected");
+}
+MotionSensor::~MotionSensor()
+{
+
+    devices.clear();
 }

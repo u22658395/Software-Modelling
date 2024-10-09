@@ -24,6 +24,11 @@ void SmokeSensor:: removeDevice(Device* device)
 
     // Simulate smoke detection
     void SmokeSensor:: detectSmoke() {
-        std::cout << "Smoke detected!\n";
+        std::cout << "\nSmoke detected!🔥🔥🔥🔥\n";
         notifyDevices("SmokeDetected");
+    }
+
+    SmokeSensor::~SmokeSensor()
+    {
+        devices.clear();
     }

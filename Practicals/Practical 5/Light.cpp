@@ -1,13 +1,23 @@
 #include "Light.h"
 
-Light::Light() : Device("Light")
-{
+Light::Light(){
     on = false;
+    type = "Light";
+    name = "";
 }
 
-Light::Light(bool state) : Device("Light")
+Light::Light(string name)
+{
+    on = false;
+    type = "Light";
+    this->name =name;
+}
+
+Light::Light(bool state, string name)
 {
     on = state;
+    type = "Light";
+    this->name = name;
 }
 
 Light::~Light()
@@ -32,9 +42,17 @@ string Light::getDeviceType(){
 
 void Light::update()
 {
-    turnOn();
+    performAction(true);
 }
 
 void Light::performAction(bool state){
     on = state;
+    if(on=true)
+    {
+        std::cout <<"\n SWITCHING ON LIGHTS💡💡💡\n";
+    }
+    else
+    {
+        std::cout <<"\nSWITCHING OFF LIGHTS\n";
+    }
 }

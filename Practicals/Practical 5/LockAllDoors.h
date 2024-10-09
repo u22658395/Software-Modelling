@@ -7,10 +7,11 @@
 class LockAllDoors : public Command
 {
 private:
-    vector<DoorLock> locks; // an array of locks whose locks will be turned locked
+    vector<Device*> locks; // an array of locks whose locks will be turned locked
 public:
-    LockAllDoors(vector<DoorLock> Locks); //
-    void addLock(DoorLock l);             // used to add a Lock to the vector
+    LockAllDoors(vector<Device*> Locks); //
+    void addLock(DoorLock* l);             // used to add a Lock to the vector
     virtual void execute();
+    ~LockAllDoors();
 };
 #endif

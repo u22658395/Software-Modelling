@@ -1,13 +1,27 @@
 #include "Thermostat.h"
 
-Thermostat::Thermostat() : Device("Thermostat")
+Thermostat::Thermostat()
 {
     on = false;
+    type = "Light";
+    name = "";
+    temp=20;
 }
 
-Thermostat::Thermostat(bool state) : Device("Thermostat")
+Thermostat::Thermostat(string name)
+{
+    on = false;
+    type = "Light";
+    this->name = name;
+    temp=20;
+}
+
+Thermostat::Thermostat(bool state, string name)
 {
     on = state;
+    type = "Light";
+    this->name = name;
+    temp=20;
 }
 
 Thermostat::~Thermostat()
